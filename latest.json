@@ -1,0 +1,7269 @@
+{
+  "schema_version": "dynamic70-public-v3",
+  "strategy": {
+    "name": "DYNAMIC70_PARTIAL_V1",
+    "config_sha256": "23716df62977b2d4a89830ed6958b3637bc6dc6d77f318bd3ec8a398eb9c1131",
+    "rules": {
+      "name": "DYNAMIC70_PARTIAL_V1",
+      "history_start": "1999-03-10",
+      "initial_model_usd": 100000.0,
+      "transaction_cost": 0.0005,
+      "model_slippage": 0.0,
+      "total_risk_cap": 0.7,
+      "spy_cap": 0.7,
+      "qqq_cap": 0.2,
+      "spy_drawdowns": [
+        0.18,
+        0.46,
+        0.54
+      ],
+      "spy_tranches": [
+        0.2,
+        0.25,
+        0.25
+      ],
+      "spy_exit_anchor_gain": 0.13,
+      "qqq_drawdowns": [
+        0.11,
+        0.82
+      ],
+      "qqq_l1_tranche": 0.2,
+      "qqq_trail_activation": 0.35,
+      "qqq_trail_drop": 0.075,
+      "qqq_recovery_sessions": 1260,
+      "tie_priority": "SPY_FIRST"
+    },
+    "portfolio_model": {
+      "spy_weight": 0.0,
+      "qqq_weight": 0.2186559423580092,
+      "safe_weight": 0.7813440576419909,
+      "risk_weight": 0.2186559423580092,
+      "note": "70% and 20% are NEW-ALLOCATION caps. Market gains may lift marked-to-market weights above those caps without forced rebalancing."
+    },
+    "spy": {
+      "adjusted_close": 728.3200073242188,
+      "running_peak": 779.0900268554688,
+      "drawdown": -0.06516579314481263,
+      "episode_anchor": null,
+      "episode_base_model_usd": null,
+      "tranche_status": [
+        0,
+        0,
+        0
+      ],
+      "exit_level": null,
+      "position_active": false
+    },
+    "qqq": {
+      "adjusted_close": 650.989990234375,
+      "signal_peak": 631.0706787109375,
+      "episode_anchor": 631.0706787109375,
+      "drawdown": 0.03156431156669459,
+      "episode_base_model_usd": 716572.108029285,
+      "tranche_status": [
+        2,
+        0
+      ],
+      "strategy_avg_cost_adjusted": 566.4503393841637,
+      "trail_active": false,
+      "trail_peak_adjusted": null,
+      "trail_stop_adjusted": null,
+      "trail_activation_adjusted": 764.7079581686211,
+      "holding_sessions": 168,
+      "recovery_exit_eligible": false,
+      "position_active": true
+    }
+  },
+  "market": {
+    "session_date": "2026-11-27",
+    "signal_mode": "FINAL_CLOSE",
+    "signal_finality": "FINAL",
+    "execution_timing": "CLOSE_SIGNAL_NEXT_NYSE_OPEN",
+    "raw_close": {
+      "SPY": 728.3200073242188,
+      "QQQ": 650.989990234375
+    }
+  },
+  "signals": {
+    "today_raw": [],
+    "next_open_plan": [],
+    "current": [
+      {
+        "asset": "SPY",
+        "signal": "HOLD",
+        "raw_signal": "HOLD",
+        "level": null,
+        "target_pct": null,
+        "current_drawdown": -0.06516579314481263,
+        "trigger_drawdown": null,
+        "next_buy_drawdown": -0.18,
+        "distance_to_buy_pct_points": 0.11483420685518736,
+        "reason": "현재 BUY/SELL 조건 없음 - 기존 보유분은 유지",
+        "strategy_reference_label": "SPY Running Peak 대비",
+        "strategy_reference_value": -0.06516579314481263,
+        "strategy_reference_price": 779.0900268554688,
+        "next_condition_label": "다음 BUY L1: Running Peak 대비 -18%",
+        "persistent": true,
+        "last_strategy_event": "SELL",
+        "last_strategy_event_raw": "SPY_EXIT",
+        "last_strategy_event_date": "2025-10-28",
+        "last_strategy_event_is_today": false
+      },
+      {
+        "asset": "QQQ",
+        "signal": "HOLD",
+        "raw_signal": "HOLD",
+        "level": null,
+        "target_pct": null,
+        "current_drawdown": 0.03156431156669459,
+        "trigger_drawdown": null,
+        "next_buy_drawdown": -0.82,
+        "distance_to_buy_pct_points": 0.8515643115666945,
+        "reason": "현재 BUY/SELL 조건 없음 - 기존 보유분은 유지",
+        "strategy_reference_label": "QQQ episode 기준 Peak 대비",
+        "strategy_reference_value": 0.03156431156669459,
+        "strategy_reference_price": 631.0706787109375,
+        "next_condition_label": "다음 특수 BUY: episode 기준 Peak 대비 -82% (Deep Signal)",
+        "persistent": true,
+        "last_strategy_event": "BUY",
+        "last_strategy_event_raw": "QQQ_BUY_L1",
+        "last_strategy_event_date": "2026-03-27",
+        "last_strategy_event_is_today": false
+      }
+    ],
+    "market_current": [
+      {
+        "asset": "SPY",
+        "signal": "HOLD",
+        "raw_signal": "HOLD",
+        "level": null,
+        "target_pct": null,
+        "current_drawdown": -0.06516579314481263,
+        "trigger_drawdown": null,
+        "next_buy_drawdown": -0.18,
+        "distance_to_buy_pct_points": 0.11483420685518736,
+        "reason": "SPY adjusted-close ATH drawdown does not meet any BUY threshold",
+        "next_condition_label": "L1: ATH 대비 -18%",
+        "strategy_reference_label": "누적 최고 수정종가(ATH)",
+        "strategy_reference_price": 779.0900268554688,
+        "strategy_reference_date": "2026-10-06",
+        "current_price_adjusted": 728.3200073242188,
+        "strategy_reference_value": -0.06516579314481263,
+        "persistent": true,
+        "scope": "MARKET_PRICE_ONLY",
+        "sell_status": "REQUIRES_ACTUAL_POSITION_CONTEXT"
+      },
+      {
+        "asset": "QQQ",
+        "signal": "BUY",
+        "raw_signal": "QQQ_BUY_L1",
+        "level": "L1",
+        "target_pct": 0.2,
+        "current_drawdown": -0.1430508210934538,
+        "trigger_drawdown": -0.11,
+        "next_buy_drawdown": -0.82,
+        "distance_to_buy_pct_points": 0.6769491789065462,
+        "reason": "QQQ market adjusted-close ATH drawdown meets L1; independent of historical model fills",
+        "next_condition_label": "다음 하위 BUY 단계",
+        "strategy_reference_label": "누적 최고 수정종가(ATH)",
+        "strategy_reference_price": 759.6599731445312,
+        "strategy_reference_date": "2026-10-06",
+        "current_price_adjusted": 650.989990234375,
+        "strategy_reference_value": -0.1430508210934538,
+        "persistent": true,
+        "scope": "MARKET_PRICE_ONLY",
+        "sell_status": "REQUIRES_ACTUAL_POSITION_CONTEXT"
+      }
+    ],
+    "historical_model_current": [
+      {
+        "asset": "SPY",
+        "signal": "HOLD",
+        "raw_signal": "HOLD",
+        "level": null,
+        "target_pct": null,
+        "current_drawdown": -0.06516579314481263,
+        "trigger_drawdown": null,
+        "next_buy_drawdown": -0.18,
+        "distance_to_buy_pct_points": 0.11483420685518736,
+        "reason": "현재 BUY/SELL 조건 없음 - 기존 보유분은 유지",
+        "strategy_reference_label": "SPY Running Peak 대비",
+        "strategy_reference_value": -0.06516579314481263,
+        "strategy_reference_price": 779.0900268554688,
+        "next_condition_label": "다음 BUY L1: Running Peak 대비 -18%",
+        "persistent": true,
+        "last_strategy_event": "SELL",
+        "last_strategy_event_raw": "SPY_EXIT",
+        "last_strategy_event_date": "2025-10-28",
+        "last_strategy_event_is_today": false
+      },
+      {
+        "asset": "QQQ",
+        "signal": "HOLD",
+        "raw_signal": "HOLD",
+        "level": null,
+        "target_pct": null,
+        "current_drawdown": 0.03156431156669459,
+        "trigger_drawdown": null,
+        "next_buy_drawdown": -0.82,
+        "distance_to_buy_pct_points": 0.8515643115666945,
+        "reason": "현재 BUY/SELL 조건 없음 - 기존 보유분은 유지",
+        "strategy_reference_label": "QQQ episode 기준 Peak 대비",
+        "strategy_reference_value": 0.03156431156669459,
+        "strategy_reference_price": 631.0706787109375,
+        "next_condition_label": "다음 특수 BUY: episode 기준 Peak 대비 -82% (Deep Signal)",
+        "persistent": true,
+        "last_strategy_event": "BUY",
+        "last_strategy_event_raw": "QQQ_BUY_L1",
+        "last_strategy_event_date": "2026-03-27",
+        "last_strategy_event_is_today": false
+      }
+    ],
+    "signal_note": "market_current = independent ATH BUY/HOLD market zone; current = legacy app compatibility (historical model); historical_model_current = legacy replay, reference only; actual SPY/QQQ SELL requires real entry data and is not inferred from model fills"
+  },
+  "market_reference": {
+    "purpose": "REFERENCE_AND_ADJUSTED_ATH_BUY_BASIS",
+    "drawdown_definition": "RAW reference: current raw close / running raw-close high - 1; live BUY: adjusted close / adjusted-close ATH - 1",
+    "SPY": {
+      "reference_basis": "RUNNING_RAW_CLOSE_HIGH",
+      "reference_label": "종가 기준 최고점",
+      "current_close": 728.3200073242188,
+      "current_adjusted_close": 728.3200073242188,
+      "running_high_close": 779.0900268554688,
+      "running_high_date": "2026-10-06",
+      "drawdown_from_running_high": -0.06516579314481263,
+      "strategy_price_basis": "ADJUSTED_CLOSE_ATH",
+      "running_high_adjusted_close": 779.0900268554688,
+      "running_high_adjusted_date": "2026-10-06",
+      "drawdown_from_adjusted_high": -0.06516579314481263,
+      "ath_steps_adjusted": [
+        {
+          "date": "1999-03-10",
+          "adjusted_ath": 79.89029693603516
+        },
+        {
+          "date": "1999-03-11",
+          "adjusted_ath": 80.77925872802734
+        },
+        {
+          "date": "1999-03-15",
+          "adjusted_ath": 81.1464614868164
+        },
+        {
+          "date": "1999-03-18",
+          "adjusted_ath": 81.78418731689453
+        },
+        {
+          "date": "1999-04-05",
+          "adjusted_ath": 82.07942199707031
+        },
+        {
+          "date": "1999-04-07",
+          "adjusted_ath": 82.5443344116211
+        },
+        {
+          "date": "1999-04-08",
+          "adjusted_ath": 83.5904541015625
+        },
+        {
+          "date": "1999-04-09",
+          "adjusted_ath": 83.60980987548828
+        },
+        {
+          "date": "1999-04-12",
+          "adjusted_ath": 84.50094604492188
+        },
+        {
+          "date": "1999-04-26",
+          "adjusted_ath": 84.67526245117188
+        },
+        {
+          "date": "1999-04-27",
+          "adjusted_ath": 85.08204650878906
+        },
+        {
+          "date": "1999-05-13",
+          "adjusted_ath": 85.14015197753906
+        },
+        {
+          "date": "1999-06-30",
+          "adjusted_ath": 85.18347930908203
+        },
+        {
+          "date": "1999-07-01",
+          "adjusted_ath": 85.82469940185547
+        },
+        {
+          "date": "1999-07-02",
+          "adjusted_ath": 86.6796646118164
+        },
+        {
+          "date": "1999-07-07",
+          "adjusted_ath": 86.77677154541016
+        },
+        {
+          "date": "1999-07-08",
+          "adjusted_ath": 86.84479522705078
+        },
+        {
+          "date": "1999-07-09",
+          "adjusted_ath": 87.35968780517578
+        },
+        {
+          "date": "1999-07-15",
+          "adjusted_ath": 87.69975280761719
+        },
+        {
+          "date": "1999-07-16",
+          "adjusted_ath": 88.17578125
+        },
+        {
+          "date": "1999-11-17",
+          "adjusted_ath": 88.3072280883789
+        },
+        {
+          "date": "1999-11-18",
+          "adjusted_ath": 88.93071746826172
+        },
+        {
+          "date": "1999-12-03",
+          "adjusted_ath": 89.69063568115234
+        },
+        {
+          "date": "1999-12-21",
+          "adjusted_ath": 89.8912582397461
+        },
+        {
+          "date": "1999-12-22",
+          "adjusted_ath": 90.12565612792969
+        },
+        {
+          "date": "1999-12-23",
+          "adjusted_ath": 91.56138610839844
+        },
+        {
+          "date": "1999-12-29",
+          "adjusted_ath": 91.7664794921875
+        },
+        {
+          "date": "1999-12-31",
+          "adjusted_ath": 91.80554962158203
+        },
+        {
+          "date": "2000-01-14",
+          "adjusted_ath": 91.86416625976562
+        },
+        {
+          "date": "2000-01-19",
+          "adjusted_ath": 91.8836441040039
+        },
+        {
+          "date": "2000-03-17",
+          "adjusted_ath": 92.07806396484375
+        },
+        {
+          "date": "2000-03-21",
+          "adjusted_ath": 93.48805236816406
+        },
+        {
+          "date": "2000-03-22",
+          "adjusted_ath": 94.0558853149414
+        },
+        {
+          "date": "2000-03-23",
+          "adjusted_ath": 95.66168212890625
+        },
+        {
+          "date": "2000-03-24",
+          "adjusted_ath": 96.22954559326172
+        },
+        {
+          "date": "2006-10-26",
+          "adjusted_ath": 96.2812728881836
+        },
+        {
+          "date": "2006-11-08",
+          "adjusted_ath": 96.3714599609375
+        },
+        {
+          "date": "2006-11-14",
+          "adjusted_ath": 96.8640365600586
+        },
+        {
+          "date": "2006-11-15",
+          "adjusted_ath": 97.14156341552734
+        },
+        {
+          "date": "2006-11-16",
+          "adjusted_ath": 97.39131164550781
+        },
+        {
+          "date": "2006-11-17",
+          "adjusted_ath": 97.4190673828125
+        },
+        {
+          "date": "2006-11-20",
+          "adjusted_ath": 97.47455596923828
+        },
+        {
+          "date": "2006-11-21",
+          "adjusted_ath": 97.57173156738281
+        },
+        {
+          "date": "2006-11-22",
+          "adjusted_ath": 97.76595306396484
+        },
+        {
+          "date": "2006-12-04",
+          "adjusted_ath": 98.02264404296875
+        },
+        {
+          "date": "2006-12-05",
+          "adjusted_ath": 98.44583129882812
+        },
+        {
+          "date": "2006-12-14",
+          "adjusted_ath": 99.29224395751953
+        },
+        {
+          "date": "2006-12-15",
+          "adjusted_ath": 99.30126190185547
+        },
+        {
+          "date": "2006-12-27",
+          "adjusted_ath": 99.41992950439453
+        },
+        {
+          "date": "2007-01-12",
+          "adjusted_ath": 99.92916107177734
+        },
+        {
+          "date": "2007-01-24",
+          "adjusted_ath": 100.42448425292969
+        },
+        {
+          "date": "2007-02-01",
+          "adjusted_ath": 100.88491821289062
+        },
+        {
+          "date": "2007-02-02",
+          "adjusted_ath": 101.02440643310547
+        },
+        {
+          "date": "2007-02-05",
+          "adjusted_ath": 101.05232238769531
+        },
+        {
+          "date": "2007-02-06",
+          "adjusted_ath": 101.08023834228516
+        },
+        {
+          "date": "2007-02-07",
+          "adjusted_ath": 101.3035659790039
+        },
+        {
+          "date": "2007-02-14",
+          "adjusted_ath": 101.58255767822266
+        },
+        {
+          "date": "2007-02-15",
+          "adjusted_ath": 101.7150650024414
+        },
+        {
+          "date": "2007-02-20",
+          "adjusted_ath": 101.88253784179688
+        },
+        {
+          "date": "2007-04-16",
+          "adjusted_ath": 102.74889373779297
+        },
+        {
+          "date": "2007-04-17",
+          "adjusted_ath": 103.02203369140625
+        },
+        {
+          "date": "2007-04-18",
+          "adjusted_ath": 103.14813232421875
+        },
+        {
+          "date": "2007-04-20",
+          "adjusted_ath": 104.09366607666016
+        },
+        {
+          "date": "2007-04-25",
+          "adjusted_ath": 104.69609069824219
+        },
+        {
+          "date": "2007-04-26",
+          "adjusted_ath": 104.8150863647461
+        },
+        {
+          "date": "2007-05-03",
+          "adjusted_ath": 105.30538177490234
+        },
+        {
+          "date": "2007-05-04",
+          "adjusted_ath": 105.70460510253906
+        },
+        {
+          "date": "2007-05-07",
+          "adjusted_ath": 105.72563171386719
+        },
+        {
+          "date": "2007-05-09",
+          "adjusted_ath": 105.87273406982422
+        },
+        {
+          "date": "2007-05-16",
+          "adjusted_ath": 106.18094635009766
+        },
+        {
+          "date": "2007-05-18",
+          "adjusted_ath": 106.89525604248047
+        },
+        {
+          "date": "2007-05-30",
+          "adjusted_ath": 107.49763488769531
+        },
+        {
+          "date": "2007-06-01",
+          "adjusted_ath": 107.91787719726562
+        },
+        {
+          "date": "2007-06-04",
+          "adjusted_ath": 107.931884765625
+        },
+        {
+          "date": "2007-07-12",
+          "adjusted_ath": 108.60108947753906
+        },
+        {
+          "date": "2007-07-13",
+          "adjusted_ath": 108.92457580566406
+        },
+        {
+          "date": "2007-07-19",
+          "adjusted_ath": 109.07939147949219
+        },
+        {
+          "date": "2007-10-05",
+          "adjusted_ath": 110.14805603027344
+        },
+        {
+          "date": "2007-10-09",
+          "adjusted_ath": 110.59343719482422
+        },
+        {
+          "date": "2012-08-16",
+          "adjusted_ath": 111.09618377685547
+        },
+        {
+          "date": "2012-08-17",
+          "adjusted_ath": 111.244873046875
+        },
+        {
+          "date": "2012-08-20",
+          "adjusted_ath": 111.2527084350586
+        },
+        {
+          "date": "2012-09-06",
+          "adjusted_ath": 112.4889144897461
+        },
+        {
+          "date": "2012-09-07",
+          "adjusted_ath": 112.92709350585938
+        },
+        {
+          "date": "2012-09-12",
+          "adjusted_ath": 112.9740219116211
+        },
+        {
+          "date": "2012-09-13",
+          "adjusted_ath": 114.69536590576172
+        },
+        {
+          "date": "2012-09-14",
+          "adjusted_ath": 115.20394897460938
+        },
+        {
+          "date": "2013-01-02",
+          "adjusted_ath": 115.70556640625
+        },
+        {
+          "date": "2013-01-04",
+          "adjusted_ath": 115.95111083984375
+        },
+        {
+          "date": "2013-01-10",
+          "adjusted_ath": 116.51354217529297
+        },
+        {
+          "date": "2013-01-17",
+          "adjusted_ath": 117.24242401123047
+        },
+        {
+          "date": "2013-01-18",
+          "adjusted_ath": 117.50381469726562
+        },
+        {
+          "date": "2013-01-22",
+          "adjusted_ath": 118.1375732421875
+        },
+        {
+          "date": "2013-01-23",
+          "adjusted_ath": 118.32767486572266
+        },
+        {
+          "date": "2013-01-24",
+          "adjusted_ath": 118.3593978881836
+        },
+        {
+          "date": "2013-01-25",
+          "adjusted_ath": 119.02479553222656
+        },
+        {
+          "date": "2013-01-29",
+          "adjusted_ath": 119.3495864868164
+        },
+        {
+          "date": "2013-02-01",
+          "adjusted_ath": 119.80907440185547
+        },
+        {
+          "date": "2013-02-08",
+          "adjusted_ath": 120.2526626586914
+        },
+        {
+          "date": "2013-02-12",
+          "adjusted_ath": 120.4269790649414
+        },
+        {
+          "date": "2013-02-13",
+          "adjusted_ath": 120.52996826171875
+        },
+        {
+          "date": "2013-02-14",
+          "adjusted_ath": 120.640869140625
+        },
+        {
+          "date": "2013-02-19",
+          "adjusted_ath": 121.4013442993164
+        },
+        {
+          "date": "2013-03-05",
+          "adjusted_ath": 122.2252197265625
+        },
+        {
+          "date": "2013-03-06",
+          "adjusted_ath": 122.39159393310547
+        },
+        {
+          "date": "2013-03-07",
+          "adjusted_ath": 122.61335754394531
+        },
+        {
+          "date": "2013-03-08",
+          "adjusted_ath": 123.13622283935547
+        },
+        {
+          "date": "2013-03-11",
+          "adjusted_ath": 123.60362243652344
+        },
+        {
+          "date": "2013-03-14",
+          "adjusted_ath": 124.15814208984375
+        },
+        {
+          "date": "2013-03-26",
+          "adjusted_ath": 124.28067016601562
+        },
+        {
+          "date": "2013-03-28",
+          "adjusted_ath": 124.66258239746094
+        },
+        {
+          "date": "2013-04-02",
+          "adjusted_ath": 124.78196716308594
+        },
+        {
+          "date": "2013-04-10",
+          "adjusted_ath": 126.25398254394531
+        },
+        {
+          "date": "2013-04-11",
+          "adjusted_ath": 126.6677474975586
+        },
+        {
+          "date": "2013-04-29",
+          "adjusted_ath": 126.75528717041016
+        },
+        {
+          "date": "2013-04-30",
+          "adjusted_ath": 127.05763244628906
+        },
+        {
+          "date": "2013-05-02",
+          "adjusted_ath": 127.11331939697266
+        },
+        {
+          "date": "2013-05-03",
+          "adjusted_ath": 128.40234375
+        },
+        {
+          "date": "2013-05-06",
+          "adjusted_ath": 128.72862243652344
+        },
+        {
+          "date": "2013-05-07",
+          "adjusted_ath": 129.38108825683594
+        },
+        {
+          "date": "2013-05-08",
+          "adjusted_ath": 129.96990966796875
+        },
+        {
+          "date": "2013-05-10",
+          "adjusted_ath": 130.02561950683594
+        },
+        {
+          "date": "2013-05-13",
+          "adjusted_ath": 130.1289825439453
+        },
+        {
+          "date": "2013-05-14",
+          "adjusted_ath": 131.47378540039062
+        },
+        {
+          "date": "2013-05-15",
+          "adjusted_ath": 132.1819610595703
+        },
+        {
+          "date": "2013-05-17",
+          "adjusted_ath": 132.83445739746094
+        },
+        {
+          "date": "2013-05-21",
+          "adjusted_ath": 133.0174102783203
+        },
+        {
+          "date": "2013-07-11",
+          "adjusted_ath": 133.93731689453125
+        },
+        {
+          "date": "2013-07-12",
+          "adjusted_ath": 133.9932861328125
+        },
+        {
+          "date": "2013-07-15",
+          "adjusted_ath": 134.50526428222656
+        },
+        {
+          "date": "2013-07-18",
+          "adjusted_ath": 135.0811004638672
+        },
+        {
+          "date": "2013-07-19",
+          "adjusted_ath": 135.3210906982422
+        },
+        {
+          "date": "2013-07-22",
+          "adjusted_ath": 135.5850830078125
+        },
+        {
+          "date": "2013-08-01",
+          "adjusted_ath": 136.51296997070312
+        },
+        {
+          "date": "2013-08-02",
+          "adjusted_ath": 136.74490356445312
+        },
+        {
+          "date": "2013-09-17",
+          "adjusted_ath": 136.8409881591797
+        },
+        {
+          "date": "2013-09-18",
+          "adjusted_ath": 138.42478942871094
+        },
+        {
+          "date": "2013-10-17",
+          "adjusted_ath": 139.23622131347656
+        },
+        {
+          "date": "2013-10-18",
+          "adjusted_ath": 140.1766357421875
+        },
+        {
+          "date": "2013-10-21",
+          "adjusted_ath": 140.1846466064453
+        },
+        {
+          "date": "2013-10-22",
+          "adjusted_ath": 140.9965057373047
+        },
+        {
+          "date": "2013-10-25",
+          "adjusted_ath": 141.43055725097656
+        },
+        {
+          "date": "2013-10-28",
+          "adjusted_ath": 141.65562438964844
+        },
+        {
+          "date": "2013-10-29",
+          "adjusted_ath": 142.4112091064453
+        },
+        {
+          "date": "2013-11-08",
+          "adjusted_ath": 142.50767517089844
+        },
+        {
+          "date": "2013-11-11",
+          "adjusted_ath": 142.53179931640625
+        },
+        {
+          "date": "2013-11-13",
+          "adjusted_ath": 143.3838348388672
+        },
+        {
+          "date": "2013-11-14",
+          "adjusted_ath": 144.0991973876953
+        },
+        {
+          "date": "2013-11-15",
+          "adjusted_ath": 144.72621154785156
+        },
+        {
+          "date": "2013-11-22",
+          "adjusted_ath": 145.33706665039062
+        },
+        {
+          "date": "2013-11-27",
+          "adjusted_ath": 145.58624267578125
+        },
+        {
+          "date": "2013-12-09",
+          "adjusted_ath": 145.81134033203125
+        },
+        {
+          "date": "2013-12-18",
+          "adjusted_ath": 146.052490234375
+        },
+        {
+          "date": "2013-12-20",
+          "adjusted_ath": 146.7322540283203
+        },
+        {
+          "date": "2013-12-23",
+          "adjusted_ath": 147.51620483398438
+        },
+        {
+          "date": "2013-12-24",
+          "adjusted_ath": 147.83946228027344
+        },
+        {
+          "date": "2013-12-26",
+          "adjusted_ath": 148.59104919433594
+        },
+        {
+          "date": "2013-12-31",
+          "adjusted_ath": 149.2617950439453
+        },
+        {
+          "date": "2014-02-24",
+          "adjusted_ath": 149.4396209716797
+        },
+        {
+          "date": "2014-02-27",
+          "adjusted_ath": 150.17510986328125
+        },
+        {
+          "date": "2014-02-28",
+          "adjusted_ath": 150.55491638183594
+        },
+        {
+          "date": "2014-03-04",
+          "adjusted_ath": 151.59747314453125
+        },
+        {
+          "date": "2014-03-05",
+          "adjusted_ath": 151.73487854003906
+        },
+        {
+          "date": "2014-03-06",
+          "adjusted_ath": 152.08236694335938
+        },
+        {
+          "date": "2014-03-07",
+          "adjusted_ath": 152.1470184326172
+        },
+        {
+          "date": "2014-04-01",
+          "adjusted_ath": 152.81039428710938
+        },
+        {
+          "date": "2014-04-02",
+          "adjusted_ath": 153.32180786132812
+        },
+        {
+          "date": "2014-05-12",
+          "adjusted_ath": 154.06051635742188
+        },
+        {
+          "date": "2014-05-13",
+          "adjusted_ath": 154.19854736328125
+        },
+        {
+          "date": "2014-05-23",
+          "adjusted_ath": 154.51510620117188
+        },
+        {
+          "date": "2014-05-27",
+          "adjusted_ath": 155.46481323242188
+        },
+        {
+          "date": "2014-05-29",
+          "adjusted_ath": 156.15478515625
+        },
+        {
+          "date": "2014-05-30",
+          "adjusted_ath": 156.40643310546875
+        },
+        {
+          "date": "2014-06-02",
+          "adjusted_ath": 156.58499145507812
+        },
+        {
+          "date": "2014-06-04",
+          "adjusted_ath": 156.82040405273438
+        },
+        {
+          "date": "2014-06-05",
+          "adjusted_ath": 157.84320068359375
+        },
+        {
+          "date": "2014-06-06",
+          "adjusted_ath": 158.5981903076172
+        },
+        {
+          "date": "2014-06-09",
+          "adjusted_ath": 158.760498046875
+        },
+        {
+          "date": "2014-06-10",
+          "adjusted_ath": 158.77674865722656
+        },
+        {
+          "date": "2014-06-18",
+          "adjusted_ath": 159.3124237060547
+        },
+        {
+          "date": "2014-06-19",
+          "adjusted_ath": 159.4910430908203
+        },
+        {
+          "date": "2014-06-20",
+          "adjusted_ath": 159.81488037109375
+        },
+        {
+          "date": "2014-07-01",
+          "adjusted_ath": 160.7039031982422
+        },
+        {
+          "date": "2014-07-02",
+          "adjusted_ath": 160.8670654296875
+        },
+        {
+          "date": "2014-07-03",
+          "adjusted_ath": 161.65821838378906
+        },
+        {
+          "date": "2014-07-23",
+          "adjusted_ath": 162.0170135498047
+        },
+        {
+          "date": "2014-07-24",
+          "adjusted_ath": 162.0252227783203
+        },
+        {
+          "date": "2014-08-20",
+          "adjusted_ath": 162.2454071044922
+        },
+        {
+          "date": "2014-08-21",
+          "adjusted_ath": 162.71849060058594
+        },
+        {
+          "date": "2014-08-25",
+          "adjusted_ath": 163.28941345214844
+        },
+        {
+          "date": "2014-08-26",
+          "adjusted_ath": 163.39547729492188
+        },
+        {
+          "date": "2014-08-29",
+          "adjusted_ath": 163.70542907714844
+        },
+        {
+          "date": "2014-09-05",
+          "adjusted_ath": 164.03167724609375
+        },
+        {
+          "date": "2014-09-18",
+          "adjusted_ath": 164.61077880859375
+        },
+        {
+          "date": "2014-10-31",
+          "adjusted_ath": 165.24916076660156
+        },
+        {
+          "date": "2014-11-03",
+          "adjusted_ath": 165.33932495117188
+        },
+        {
+          "date": "2014-11-05",
+          "adjusted_ath": 165.80633544921875
+        },
+        {
+          "date": "2014-11-06",
+          "adjusted_ath": 166.47007751464844
+        },
+        {
+          "date": "2014-11-07",
+          "adjusted_ath": 166.6257781982422
+        },
+        {
+          "date": "2014-11-10",
+          "adjusted_ath": 167.15028381347656
+        },
+        {
+          "date": "2014-11-11",
+          "adjusted_ath": 167.31407165527344
+        },
+        {
+          "date": "2014-11-13",
+          "adjusted_ath": 167.32237243652344
+        },
+        {
+          "date": "2014-11-14",
+          "adjusted_ath": 167.36329650878906
+        },
+        {
+          "date": "2014-11-17",
+          "adjusted_ath": 167.46981811523438
+        },
+        {
+          "date": "2014-11-18",
+          "adjusted_ath": 168.43673706054688
+        },
+        {
+          "date": "2014-11-20",
+          "adjusted_ath": 168.4613494873047
+        },
+        {
+          "date": "2014-11-21",
+          "adjusted_ath": 169.3627471923828
+        },
+        {
+          "date": "2014-11-24",
+          "adjusted_ath": 169.83802795410156
+        },
+        {
+          "date": "2014-11-26",
+          "adjusted_ath": 170.14942932128906
+        },
+        {
+          "date": "2014-12-03",
+          "adjusted_ath": 170.35426330566406
+        },
+        {
+          "date": "2014-12-05",
+          "adjusted_ath": 170.44439697265625
+        },
+        {
+          "date": "2014-12-22",
+          "adjusted_ath": 170.94845581054688
+        },
+        {
+          "date": "2014-12-23",
+          "adjusted_ath": 171.1791229248047
+        },
+        {
+          "date": "2014-12-24",
+          "adjusted_ath": 171.19558715820312
+        },
+        {
+          "date": "2014-12-26",
+          "adjusted_ath": 171.7476806640625
+        },
+        {
+          "date": "2014-12-29",
+          "adjusted_ath": 171.9783477783203
+        },
+        {
+          "date": "2015-02-12",
+          "adjusted_ath": 172.14315795898438
+        },
+        {
+          "date": "2015-02-13",
+          "adjusted_ath": 172.851806640625
+        },
+        {
+          "date": "2015-02-17",
+          "adjusted_ath": 173.12371826171875
+        },
+        {
+          "date": "2015-02-18",
+          "adjusted_ath": 173.1401824951172
+        },
+        {
+          "date": "2015-02-20",
+          "adjusted_ath": 174.0547637939453
+        },
+        {
+          "date": "2015-02-24",
+          "adjusted_ath": 174.52442932128906
+        },
+        {
+          "date": "2015-03-02",
+          "adjusted_ath": 174.6727294921875
+        },
+        {
+          "date": "2015-04-23",
+          "adjusted_ath": 174.76551818847656
+        },
+        {
+          "date": "2015-04-24",
+          "adjusted_ath": 175.17111206054688
+        },
+        {
+          "date": "2015-05-14",
+          "adjusted_ath": 175.63450622558594
+        },
+        {
+          "date": "2015-05-15",
+          "adjusted_ath": 175.8249053955078
+        },
+        {
+          "date": "2015-05-18",
+          "adjusted_ath": 176.37112426757812
+        },
+        {
+          "date": "2015-05-21",
+          "adjusted_ath": 176.70220947265625
+        },
+        {
+          "date": "2015-07-17",
+          "adjusted_ath": 176.7134246826172
+        },
+        {
+          "date": "2015-07-20",
+          "adjusted_ath": 176.80491638183594
+        },
+        {
+          "date": "2016-04-18",
+          "adjusted_ath": 176.8721160888672
+        },
+        {
+          "date": "2016-04-19",
+          "adjusted_ath": 177.42996215820312
+        },
+        {
+          "date": "2016-04-20",
+          "adjusted_ath": 177.59906005859375
+        },
+        {
+          "date": "2016-05-27",
+          "adjusted_ath": 177.7174072265625
+        },
+        {
+          "date": "2016-06-01",
+          "adjusted_ath": 177.74273681640625
+        },
+        {
+          "date": "2016-06-02",
+          "adjusted_ath": 178.2837677001953
+        },
+        {
+          "date": "2016-06-06",
+          "adjusted_ath": 178.6556854248047
+        },
+        {
+          "date": "2016-06-07",
+          "adjusted_ath": 178.9346466064453
+        },
+        {
+          "date": "2016-06-08",
+          "adjusted_ath": 179.51791381835938
+        },
+        {
+          "date": "2016-07-08",
+          "adjusted_ath": 180.6893768310547
+        },
+        {
+          "date": "2016-07-11",
+          "adjusted_ath": 181.32664489746094
+        },
+        {
+          "date": "2016-07-12",
+          "adjusted_ath": 182.64369201660156
+        },
+        {
+          "date": "2016-07-14",
+          "adjusted_ath": 183.63787841796875
+        },
+        {
+          "date": "2016-07-18",
+          "adjusted_ath": 183.88424682617188
+        },
+        {
+          "date": "2016-07-20",
+          "adjusted_ath": 184.4620819091797
+        },
+        {
+          "date": "2016-07-22",
+          "adjusted_ath": 184.58956909179688
+        },
+        {
+          "date": "2016-08-05",
+          "adjusted_ath": 185.38824462890625
+        },
+        {
+          "date": "2016-08-11",
+          "adjusted_ath": 185.78759765625
+        },
+        {
+          "date": "2016-08-15",
+          "adjusted_ath": 186.1614990234375
+        },
+        {
+          "date": "2016-11-15",
+          "adjusted_ath": 186.41009521484375
+        },
+        {
+          "date": "2016-11-17",
+          "adjusted_ath": 187.01646423339844
+        },
+        {
+          "date": "2016-11-21",
+          "adjusted_ath": 188.007080078125
+        },
+        {
+          "date": "2016-11-22",
+          "adjusted_ath": 188.3743133544922
+        },
+        {
+          "date": "2016-11-23",
+          "adjusted_ath": 188.4767303466797
+        },
+        {
+          "date": "2016-11-25",
+          "adjusted_ath": 189.1770477294922
+        },
+        {
+          "date": "2016-12-06",
+          "adjusted_ath": 189.330810546875
+        },
+        {
+          "date": "2016-12-07",
+          "adjusted_ath": 191.807373046875
+        },
+        {
+          "date": "2016-12-08",
+          "adjusted_ath": 192.27706909179688
+        },
+        {
+          "date": "2016-12-09",
+          "adjusted_ath": 193.4384765625
+        },
+        {
+          "date": "2016-12-13",
+          "adjusted_ath": 194.50596618652344
+        },
+        {
+          "date": "2017-01-04",
+          "adjusted_ath": 194.63880920410156
+        },
+        {
+          "date": "2017-01-06",
+          "adjusted_ath": 195.17996215820312
+        },
+        {
+          "date": "2017-01-24",
+          "adjusted_ath": 195.51498413085938
+        },
+        {
+          "date": "2017-01-25",
+          "adjusted_ath": 197.20729064941406
+        },
+        {
+          "date": "2017-02-09",
+          "adjusted_ath": 198.0920867919922
+        },
+        {
+          "date": "2017-02-10",
+          "adjusted_ath": 198.873779296875
+        },
+        {
+          "date": "2017-02-13",
+          "adjusted_ath": 199.95616149902344
+        },
+        {
+          "date": "2017-02-14",
+          "adjusted_ath": 200.7550506591797
+        },
+        {
+          "date": "2017-02-15",
+          "adjusted_ath": 201.80303955078125
+        },
+        {
+          "date": "2017-02-17",
+          "adjusted_ath": 201.94911193847656
+        },
+        {
+          "date": "2017-02-21",
+          "adjusted_ath": 203.1517333984375
+        },
+        {
+          "date": "2017-02-24",
+          "adjusted_ath": 203.36651611328125
+        },
+        {
+          "date": "2017-02-27",
+          "adjusted_ath": 203.68434143066406
+        },
+        {
+          "date": "2017-03-01",
+          "adjusted_ath": 205.9779815673828
+        },
+        {
+          "date": "2017-05-02",
+          "adjusted_ath": 206.00267028808594
+        },
+        {
+          "date": "2017-05-05",
+          "adjusted_ath": 206.8050079345703
+        },
+        {
+          "date": "2017-05-10",
+          "adjusted_ath": 206.95169067382812
+        },
+        {
+          "date": "2017-05-15",
+          "adjusted_ath": 207.32272338867188
+        },
+        {
+          "date": "2017-05-24",
+          "adjusted_ath": 207.5901336669922
+        },
+        {
+          "date": "2017-05-25",
+          "adjusted_ath": 208.5823516845703
+        },
+        {
+          "date": "2017-06-01",
+          "adjusted_ath": 209.9627685546875
+        },
+        {
+          "date": "2017-06-02",
+          "adjusted_ath": 210.6615753173828
+        },
+        {
+          "date": "2017-06-13",
+          "adjusted_ath": 210.98948669433594
+        },
+        {
+          "date": "2017-06-19",
+          "adjusted_ath": 212.11373901367188
+        },
+        {
+          "date": "2017-07-14",
+          "adjusted_ath": 212.8939666748047
+        },
+        {
+          "date": "2017-07-18",
+          "adjusted_ath": 212.98068237304688
+        },
+        {
+          "date": "2017-07-19",
+          "adjusted_ath": 214.13375854492188
+        },
+        {
+          "date": "2017-07-20",
+          "adjusted_ath": 214.22914123535156
+        },
+        {
+          "date": "2017-07-25",
+          "adjusted_ath": 214.50660705566406
+        },
+        {
+          "date": "2017-07-26",
+          "adjusted_ath": 214.5152587890625
+        },
+        {
+          "date": "2017-08-02",
+          "adjusted_ath": 214.52391052246094
+        },
+        {
+          "date": "2017-08-07",
+          "adjusted_ath": 214.896728515625
+        },
+        {
+          "date": "2017-09-11",
+          "adjusted_ath": 216.05845642089844
+        },
+        {
+          "date": "2017-09-12",
+          "adjusted_ath": 216.78668212890625
+        },
+        {
+          "date": "2017-09-13",
+          "adjusted_ath": 216.8907470703125
+        },
+        {
+          "date": "2017-09-15",
+          "adjusted_ath": 217.11326599121094
+        },
+        {
+          "date": "2017-09-18",
+          "adjusted_ath": 217.57505798339844
+        },
+        {
+          "date": "2017-09-19",
+          "adjusted_ath": 217.79286193847656
+        },
+        {
+          "date": "2017-09-20",
+          "adjusted_ath": 217.87127685546875
+        },
+        {
+          "date": "2017-09-28",
+          "adjusted_ath": 218.12396240234375
+        },
+        {
+          "date": "2017-09-29",
+          "adjusted_ath": 218.8906707763672
+        },
+        {
+          "date": "2017-10-02",
+          "adjusted_ath": 219.84039306640625
+        },
+        {
+          "date": "2017-10-03",
+          "adjusted_ath": 220.31088256835938
+        },
+        {
+          "date": "2017-10-04",
+          "adjusted_ath": 220.57223510742188
+        },
+        {
+          "date": "2017-10-05",
+          "adjusted_ath": 221.87918090820312
+        },
+        {
+          "date": "2017-10-11",
+          "adjusted_ath": 222.19277954101562
+        },
+        {
+          "date": "2017-10-16",
+          "adjusted_ath": 222.42807006835938
+        },
+        {
+          "date": "2017-10-17",
+          "adjusted_ath": 222.5848846435547
+        },
+        {
+          "date": "2017-10-18",
+          "adjusted_ath": 222.80271911621094
+        },
+        {
+          "date": "2017-10-19",
+          "adjusted_ath": 222.86366271972656
+        },
+        {
+          "date": "2017-10-20",
+          "adjusted_ath": 224.01380920410156
+        },
+        {
+          "date": "2017-10-27",
+          "adjusted_ath": 224.53651428222656
+        },
+        {
+          "date": "2017-11-03",
+          "adjusted_ath": 225.18128967285156
+        },
+        {
+          "date": "2017-11-06",
+          "adjusted_ath": 225.52975463867188
+        },
+        {
+          "date": "2017-11-08",
+          "adjusted_ath": 225.75628662109375
+        },
+        {
+          "date": "2017-11-21",
+          "adjusted_ath": 226.5231170654297
+        },
+        {
+          "date": "2017-11-24",
+          "adjusted_ath": 226.84539794921875
+        },
+        {
+          "date": "2017-11-28",
+          "adjusted_ath": 229.03231811523438
+        },
+        {
+          "date": "2017-11-30",
+          "adjusted_ath": 230.89688110351562
+        },
+        {
+          "date": "2017-12-08",
+          "adjusted_ath": 231.33251953125
+        },
+        {
+          "date": "2017-12-11",
+          "adjusted_ath": 232.0294647216797
+        },
+        {
+          "date": "2017-12-12",
+          "adjusted_ath": 232.43898010253906
+        },
+        {
+          "date": "2017-12-15",
+          "adjusted_ath": 233.390625
+        },
+        {
+          "date": "2017-12-18",
+          "adjusted_ath": 234.8706512451172
+        },
+        {
+          "date": "2018-01-02",
+          "adjusted_ath": 235.36981201171875
+        },
+        {
+          "date": "2018-01-03",
+          "adjusted_ath": 236.85855102539062
+        },
+        {
+          "date": "2018-01-04",
+          "adjusted_ath": 237.85687255859375
+        },
+        {
+          "date": "2018-01-05",
+          "adjusted_ath": 239.44200134277344
+        },
+        {
+          "date": "2018-01-08",
+          "adjusted_ath": 239.8798828125
+        },
+        {
+          "date": "2018-01-09",
+          "adjusted_ath": 240.42286682128906
+        },
+        {
+          "date": "2018-01-11",
+          "adjusted_ath": 241.8064727783203
+        },
+        {
+          "date": "2018-01-12",
+          "adjusted_ath": 243.3827667236328
+        },
+        {
+          "date": "2018-01-17",
+          "adjusted_ath": 244.8627471923828
+        },
+        {
+          "date": "2018-01-19",
+          "adjusted_ath": 245.56336975097656
+        },
+        {
+          "date": "2018-01-22",
+          "adjusted_ath": 247.55999755859375
+        },
+        {
+          "date": "2018-01-23",
+          "adjusted_ath": 248.08547973632812
+        },
+        {
+          "date": "2018-01-25",
+          "adjusted_ath": 248.09426879882812
+        },
+        {
+          "date": "2018-01-26",
+          "adjusted_ath": 250.9665985107422
+        },
+        {
+          "date": "2018-08-06",
+          "adjusted_ath": 251.38975524902344
+        },
+        {
+          "date": "2018-08-07",
+          "adjusted_ath": 252.219970703125
+        },
+        {
+          "date": "2018-08-20",
+          "adjusted_ath": 252.2994842529297
+        },
+        {
+          "date": "2018-08-21",
+          "adjusted_ath": 252.89120483398438
+        },
+        {
+          "date": "2018-08-24",
+          "adjusted_ath": 253.9244842529297
+        },
+        {
+          "date": "2018-08-27",
+          "adjusted_ath": 255.92929077148438
+        },
+        {
+          "date": "2018-08-28",
+          "adjusted_ath": 256.052978515625
+        },
+        {
+          "date": "2018-08-29",
+          "adjusted_ath": 257.43084716796875
+        },
+        {
+          "date": "2018-09-20",
+          "adjusted_ath": 259.2854919433594
+        },
+        {
+          "date": "2019-04-12",
+          "adjusted_ath": 260.0688171386719
+        },
+        {
+          "date": "2019-04-22",
+          "adjusted_ath": 260.16729736328125
+        },
+        {
+          "date": "2019-04-23",
+          "adjusted_ath": 262.5067443847656
+        },
+        {
+          "date": "2019-04-26",
+          "adjusted_ath": 262.9817199707031
+        },
+        {
+          "date": "2019-04-29",
+          "adjusted_ath": 263.39410400390625
+        },
+        {
+          "date": "2019-04-30",
+          "adjusted_ath": 263.5284729003906
+        },
+        {
+          "date": "2019-05-03",
+          "adjusted_ath": 263.5374755859375
+        },
+        {
+          "date": "2019-06-20",
+          "adjusted_ath": 265.1777038574219
+        },
+        {
+          "date": "2019-07-01",
+          "adjusted_ath": 266.2872619628906
+        },
+        {
+          "date": "2019-07-02",
+          "adjusted_ath": 266.9808044433594
+        },
+        {
+          "date": "2019-07-03",
+          "adjusted_ath": 269.1153259277344
+        },
+        {
+          "date": "2019-07-11",
+          "adjusted_ath": 269.5746765136719
+        },
+        {
+          "date": "2019-07-12",
+          "adjusted_ath": 270.7816162109375
+        },
+        {
+          "date": "2019-07-15",
+          "adjusted_ath": 270.8716125488281
+        },
+        {
+          "date": "2019-07-24",
+          "adjusted_ath": 271.4930725097656
+        },
+        {
+          "date": "2019-07-26",
+          "adjusted_ath": 272.00634765625
+        },
+        {
+          "date": "2019-10-25",
+          "adjusted_ath": 272.8916320800781
+        },
+        {
+          "date": "2019-10-28",
+          "adjusted_ath": 274.4297790527344
+        },
+        {
+          "date": "2019-10-30",
+          "adjusted_ath": 275.1898193359375
+        },
+        {
+          "date": "2019-11-01",
+          "adjusted_ath": 276.9993591308594
+        },
+        {
+          "date": "2019-11-04",
+          "adjusted_ath": 278.1123046875
+        },
+        {
+          "date": "2019-11-07",
+          "adjusted_ath": 278.84527587890625
+        },
+        {
+          "date": "2019-11-08",
+          "adjusted_ath": 279.532958984375
+        },
+        {
+          "date": "2019-11-12",
+          "adjusted_ath": 279.58721923828125
+        },
+        {
+          "date": "2019-11-13",
+          "adjusted_ath": 279.6777648925781
+        },
+        {
+          "date": "2019-11-14",
+          "adjusted_ath": 280.0848693847656
+        },
+        {
+          "date": "2019-11-15",
+          "adjusted_ath": 282.1116027832031
+        },
+        {
+          "date": "2019-11-18",
+          "adjusted_ath": 282.3196716308594
+        },
+        {
+          "date": "2019-11-25",
+          "adjusted_ath": 283.5412292480469
+        },
+        {
+          "date": "2019-11-26",
+          "adjusted_ath": 284.1836242675781
+        },
+        {
+          "date": "2019-11-27",
+          "adjusted_ath": 285.4504089355469
+        },
+        {
+          "date": "2019-12-12",
+          "adjusted_ath": 286.9433288574219
+        },
+        {
+          "date": "2019-12-13",
+          "adjusted_ath": 287.115234375
+        },
+        {
+          "date": "2019-12-16",
+          "adjusted_ath": 289.0877685546875
+        },
+        {
+          "date": "2019-12-17",
+          "adjusted_ath": 289.1510925292969
+        },
+        {
+          "date": "2019-12-18",
+          "adjusted_ath": 289.1691589355469
+        },
+        {
+          "date": "2019-12-19",
+          "adjusted_ath": 290.3544616699219
+        },
+        {
+          "date": "2019-12-20",
+          "adjusted_ath": 291.6275329589844
+        },
+        {
+          "date": "2019-12-23",
+          "adjusted_ath": 292.0729675292969
+        },
+        {
+          "date": "2019-12-24",
+          "adjusted_ath": 292.0821533203125
+        },
+        {
+          "date": "2019-12-26",
+          "adjusted_ath": 293.6370544433594
+        },
+        {
+          "date": "2020-01-02",
+          "adjusted_ath": 295.3917541503906
+        },
+        {
+          "date": "2020-01-09",
+          "adjusted_ath": 297.01025390625
+        },
+        {
+          "date": "2020-01-13",
+          "adjusted_ath": 298.1922912597656
+        },
+        {
+          "date": "2020-01-15",
+          "adjusted_ath": 298.4105529785156
+        },
+        {
+          "date": "2020-01-16",
+          "adjusted_ath": 300.892822265625
+        },
+        {
+          "date": "2020-01-17",
+          "adjusted_ath": 301.82940673828125
+        },
+        {
+          "date": "2020-02-05",
+          "adjusted_ath": 302.65673828125
+        },
+        {
+          "date": "2020-02-06",
+          "adjusted_ath": 303.6751403808594
+        },
+        {
+          "date": "2020-02-10",
+          "adjusted_ath": 304.311767578125
+        },
+        {
+          "date": "2020-02-11",
+          "adjusted_ath": 304.8389587402344
+        },
+        {
+          "date": "2020-02-12",
+          "adjusted_ath": 306.802978515625
+        },
+        {
+          "date": "2020-02-14",
+          "adjusted_ath": 306.9666748046875
+        },
+        {
+          "date": "2020-02-19",
+          "adjusted_ath": 307.6394958496094
+        },
+        {
+          "date": "2020-08-10",
+          "adjusted_ath": 308.26568603515625
+        },
+        {
+          "date": "2020-08-12",
+          "adjusted_ath": 309.9836120605469
+        },
+        {
+          "date": "2020-08-17",
+          "adjusted_ath": 310.4153137207031
+        },
+        {
+          "date": "2020-08-18",
+          "adjusted_ath": 311.0859375
+        },
+        {
+          "date": "2020-08-21",
+          "adjusted_ath": 311.8575134277344
+        },
+        {
+          "date": "2020-08-24",
+          "adjusted_ath": 315.0176696777344
+        },
+        {
+          "date": "2020-08-25",
+          "adjusted_ath": 316.12005615234375
+        },
+        {
+          "date": "2020-08-26",
+          "adjusted_ath": 319.2892761230469
+        },
+        {
+          "date": "2020-08-27",
+          "adjusted_ath": 319.9874572753906
+        },
+        {
+          "date": "2020-08-28",
+          "adjusted_ath": 322.0543212890625
+        },
+        {
+          "date": "2020-09-01",
+          "adjusted_ath": 323.909912109375
+        },
+        {
+          "date": "2020-09-02",
+          "adjusted_ath": 328.594970703125
+        },
+        {
+          "date": "2020-11-11",
+          "adjusted_ath": 328.9605407714844
+        },
+        {
+          "date": "2020-11-13",
+          "adjusted_ath": 330.2793273925781
+        },
+        {
+          "date": "2020-11-16",
+          "adjusted_ath": 334.4020080566406
+        },
+        {
+          "date": "2020-11-24",
+          "adjusted_ath": 335.0014953613281
+        },
+        {
+          "date": "2020-11-27",
+          "adjusted_ath": 335.4166564941406
+        },
+        {
+          "date": "2020-12-01",
+          "adjusted_ath": 337.583984375
+        },
+        {
+          "date": "2020-12-02",
+          "adjusted_ath": 338.2940979003906
+        },
+        {
+          "date": "2020-12-04",
+          "adjusted_ath": 341.1164855957031
+        },
+        {
+          "date": "2020-12-08",
+          "adjusted_ath": 341.4115905761719
+        },
+        {
+          "date": "2020-12-17",
+          "adjusted_ath": 343.32080078125
+        },
+        {
+          "date": "2020-12-28",
+          "adjusted_ath": 344.7193908691406
+        },
+        {
+          "date": "2020-12-31",
+          "adjusted_ath": 346.30328369140625
+        },
+        {
+          "date": "2021-01-07",
+          "adjusted_ath": 351.13824462890625
+        },
+        {
+          "date": "2021-01-08",
+          "adjusted_ath": 353.1387939453125
+        },
+        {
+          "date": "2021-01-20",
+          "adjusted_ath": 355.5750427246094
+        },
+        {
+          "date": "2021-01-21",
+          "adjusted_ath": 355.8990783691406
+        },
+        {
+          "date": "2021-01-25",
+          "adjusted_ath": 356.03814697265625
+        },
+        {
+          "date": "2021-02-04",
+          "adjusted_ath": 357.70526123046875
+        },
+        {
+          "date": "2021-02-05",
+          "adjusted_ath": 359.1131896972656
+        },
+        {
+          "date": "2021-02-08",
+          "adjusted_ath": 361.7066955566406
+        },
+        {
+          "date": "2021-02-11",
+          "adjusted_ath": 361.8919372558594
+        },
+        {
+          "date": "2021-02-12",
+          "adjusted_ath": 363.6794738769531
+        },
+        {
+          "date": "2021-03-11",
+          "adjusted_ath": 364.50396728515625
+        },
+        {
+          "date": "2021-03-12",
+          "adjusted_ath": 364.994873046875
+        },
+        {
+          "date": "2021-03-15",
+          "adjusted_ath": 367.1714782714844
+        },
+        {
+          "date": "2021-03-17",
+          "adjusted_ath": 367.95880126953125
+        },
+        {
+          "date": "2021-03-26",
+          "adjusted_ath": 367.9744873046875
+        },
+        {
+          "date": "2021-03-31",
+          "adjusted_ath": 368.2997131347656
+        },
+        {
+          "date": "2021-04-01",
+          "adjusted_ath": 372.27703857421875
+        },
+        {
+          "date": "2021-04-05",
+          "adjusted_ath": 377.6203918457031
+        },
+        {
+          "date": "2021-04-07",
+          "adjusted_ath": 377.83404541015625
+        },
+        {
+          "date": "2021-04-08",
+          "adjusted_ath": 379.62762451171875
+        },
+        {
+          "date": "2021-04-09",
+          "adjusted_ath": 382.3876037597656
+        },
+        {
+          "date": "2021-04-12",
+          "adjusted_ath": 382.5269470214844
+        },
+        {
+          "date": "2021-04-13",
+          "adjusted_ath": 383.6606140136719
+        },
+        {
+          "date": "2021-04-15",
+          "adjusted_ath": 386.45782470703125
+        },
+        {
+          "date": "2021-04-16",
+          "adjusted_ath": 387.7495422363281
+        },
+        {
+          "date": "2021-04-26",
+          "adjusted_ath": 388.07464599609375
+        },
+        {
+          "date": "2021-04-29",
+          "adjusted_ath": 390.35137939453125
+        },
+        {
+          "date": "2021-05-07",
+          "adjusted_ath": 392.2657470703125
+        },
+        {
+          "date": "2021-06-04",
+          "adjusted_ath": 392.7117919921875
+        },
+        {
+          "date": "2021-06-10",
+          "adjusted_ath": 393.6502990722656
+        },
+        {
+          "date": "2021-06-11",
+          "adjusted_ath": 394.3009033203125
+        },
+        {
+          "date": "2021-06-14",
+          "adjusted_ath": 395.1836853027344
+        },
+        {
+          "date": "2021-06-24",
+          "adjusted_ath": 396.32733154296875
+        },
+        {
+          "date": "2021-06-25",
+          "adjusted_ath": 397.7351989746094
+        },
+        {
+          "date": "2021-06-28",
+          "adjusted_ath": 398.53692626953125
+        },
+        {
+          "date": "2021-06-29",
+          "adjusted_ath": 398.75140380859375
+        },
+        {
+          "date": "2021-06-30",
+          "adjusted_ath": 399.0870361328125
+        },
+        {
+          "date": "2021-07-01",
+          "adjusted_ath": 401.2965393066406
+        },
+        {
+          "date": "2021-07-02",
+          "adjusted_ath": 404.3639221191406
+        },
+        {
+          "date": "2021-07-07",
+          "adjusted_ath": 405.0538024902344
+        },
+        {
+          "date": "2021-07-09",
+          "adjusted_ath": 406.0420837402344
+        },
+        {
+          "date": "2021-07-12",
+          "adjusted_ath": 407.4964904785156
+        },
+        {
+          "date": "2021-07-23",
+          "adjusted_ath": 410.1628723144531
+        },
+        {
+          "date": "2021-07-26",
+          "adjusted_ath": 411.1697998046875
+        },
+        {
+          "date": "2021-08-03",
+          "adjusted_ath": 411.2910461425781
+        },
+        {
+          "date": "2021-08-05",
+          "adjusted_ath": 411.8597412109375
+        },
+        {
+          "date": "2021-08-06",
+          "adjusted_ath": 412.5402526855469
+        },
+        {
+          "date": "2021-08-10",
+          "adjusted_ath": 412.71746826171875
+        },
+        {
+          "date": "2021-08-11",
+          "adjusted_ath": 413.7430114746094
+        },
+        {
+          "date": "2021-08-12",
+          "adjusted_ath": 414.9829406738281
+        },
+        {
+          "date": "2021-08-13",
+          "adjusted_ath": 415.7381896972656
+        },
+        {
+          "date": "2021-08-16",
+          "adjusted_ath": 416.71710205078125
+        },
+        {
+          "date": "2021-08-23",
+          "adjusted_ath": 416.9875183105469
+        },
+        {
+          "date": "2021-08-24",
+          "adjusted_ath": 417.6493835449219
+        },
+        {
+          "date": "2021-08-25",
+          "adjusted_ath": 418.52581787109375
+        },
+        {
+          "date": "2021-08-27",
+          "adjusted_ath": 419.775146484375
+        },
+        {
+          "date": "2021-08-30",
+          "adjusted_ath": 421.6210632324219
+        },
+        {
+          "date": "2021-09-02",
+          "adjusted_ath": 422.51605224609375
+        },
+        {
+          "date": "2021-10-20",
+          "adjusted_ath": 423.1401672363281
+        },
+        {
+          "date": "2021-10-21",
+          "adjusted_ath": 424.2438659667969
+        },
+        {
+          "date": "2021-10-25",
+          "adjusted_ath": 426.0770263671875
+        },
+        {
+          "date": "2021-10-26",
+          "adjusted_ath": 426.4604797363281
+        },
+        {
+          "date": "2021-10-28",
+          "adjusted_ath": 428.6678466796875
+        },
+        {
+          "date": "2021-10-29",
+          "adjusted_ath": 429.53765869140625
+        },
+        {
+          "date": "2021-11-01",
+          "adjusted_ath": 430.27655029296875
+        },
+        {
+          "date": "2021-11-02",
+          "adjusted_ath": 432.0162353515625
+        },
+        {
+          "date": "2021-11-03",
+          "adjusted_ath": 434.65374755859375
+        },
+        {
+          "date": "2021-11-04",
+          "adjusted_ath": 436.70208740234375
+        },
+        {
+          "date": "2021-11-05",
+          "adjusted_ath": 438.2171936035156
+        },
+        {
+          "date": "2021-11-08",
+          "adjusted_ath": 438.59136962890625
+        },
+        {
+          "date": "2021-11-16",
+          "adjusted_ath": 438.91876220703125
+        },
+        {
+          "date": "2021-11-18",
+          "adjusted_ath": 439.3396301269531
+        },
+        {
+          "date": "2021-12-10",
+          "adjusted_ath": 440.2842712402344
+        },
+        {
+          "date": "2021-12-23",
+          "adjusted_ath": 441.69970703125
+        },
+        {
+          "date": "2021-12-27",
+          "adjusted_ath": 447.95062255859375
+        },
+        {
+          "date": "2021-12-29",
+          "adjusted_ath": 448.1571350097656
+        },
+        {
+          "date": "2022-01-03",
+          "adjusted_ath": 448.37298583984375
+        },
+        {
+          "date": "2023-12-13",
+          "adjusted_ath": 453.75115966796875
+        },
+        {
+          "date": "2023-12-14",
+          "adjusted_ath": 455.2074279785156
+        },
+        {
+          "date": "2023-12-18",
+          "adjusted_ath": 457.0142822265625
+        },
+        {
+          "date": "2023-12-19",
+          "adjusted_ath": 459.7933349609375
+        },
+        {
+          "date": "2023-12-26",
+          "adjusted_ath": 460.57763671875
+        },
+        {
+          "date": "2023-12-27",
+          "adjusted_ath": 461.4104309082031
+        },
+        {
+          "date": "2023-12-28",
+          "adjusted_ath": 461.584716796875
+        },
+        {
+          "date": "2024-01-19",
+          "adjusted_ath": 467.1427917480469
+        },
+        {
+          "date": "2024-01-22",
+          "adjusted_ath": 468.1304626464844
+        },
+        {
+          "date": "2024-01-23",
+          "adjusted_ath": 469.4958190917969
+        },
+        {
+          "date": "2024-01-24",
+          "adjusted_ath": 470.009033203125
+        },
+        {
+          "date": "2024-01-25",
+          "adjusted_ath": 472.5653381347656
+        },
+        {
+          "date": "2024-01-29",
+          "adjusted_ath": 475.7026672363281
+        },
+        {
+          "date": "2024-02-02",
+          "adjusted_ath": 478.6851806640625
+        },
+        {
+          "date": "2024-02-07",
+          "adjusted_ath": 482.3162841796875
+        },
+        {
+          "date": "2024-02-08",
+          "adjusted_ath": 482.529296875
+        },
+        {
+          "date": "2024-02-09",
+          "adjusted_ath": 485.3180847167969
+        },
+        {
+          "date": "2024-02-15",
+          "adjusted_ath": 486.10235595703125
+        },
+        {
+          "date": "2024-02-22",
+          "adjusted_ath": 491.41839599609375
+        },
+        {
+          "date": "2024-02-23",
+          "adjusted_ath": 491.7572937011719
+        },
+        {
+          "date": "2024-02-29",
+          "adjusted_ath": 491.97998046875
+        },
+        {
+          "date": "2024-03-01",
+          "adjusted_ath": 496.59881591796875
+        },
+        {
+          "date": "2024-03-07",
+          "adjusted_ath": 498.4967041015625
+        },
+        {
+          "date": "2024-03-12",
+          "adjusted_ath": 500.4043884277344
+        },
+        {
+          "date": "2024-03-19",
+          "adjusted_ath": 500.9197998046875
+        },
+        {
+          "date": "2024-03-20",
+          "adjusted_ath": 505.5530090332031
+        },
+        {
+          "date": "2024-03-21",
+          "adjusted_ath": 507.2236633300781
+        },
+        {
+          "date": "2024-03-27",
+          "adjusted_ath": 508.1658020019531
+        },
+        {
+          "date": "2024-05-14",
+          "adjusted_ath": 508.2920227050781
+        },
+        {
+          "date": "2024-05-15",
+          "adjusted_ath": 514.5863037109375
+        },
+        {
+          "date": "2024-05-20",
+          "adjusted_ath": 514.8582763671875
+        },
+        {
+          "date": "2024-05-21",
+          "adjusted_ath": 516.1209106445312
+        },
+        {
+          "date": "2024-06-05",
+          "adjusted_ath": 519.3360595703125
+        },
+        {
+          "date": "2024-06-10",
+          "adjusted_ath": 520.297607421875
+        },
+        {
+          "date": "2024-06-11",
+          "adjusted_ath": 521.5506591796875
+        },
+        {
+          "date": "2024-06-12",
+          "adjusted_ath": 525.8341064453125
+        },
+        {
+          "date": "2024-06-13",
+          "adjusted_ath": 526.8929443359375
+        },
+        {
+          "date": "2024-06-14",
+          "adjusted_ath": 527.2134399414062
+        },
+        {
+          "date": "2024-06-17",
+          "adjusted_ath": 531.4096069335938
+        },
+        {
+          "date": "2024-06-18",
+          "adjusted_ath": 532.7595825195312
+        },
+        {
+          "date": "2024-07-02",
+          "adjusted_ath": 534.9851684570312
+        },
+        {
+          "date": "2024-07-03",
+          "adjusted_ath": 537.37255859375
+        },
+        {
+          "date": "2024-07-05",
+          "adjusted_ath": 540.4713745117188
+        },
+        {
+          "date": "2024-07-08",
+          "adjusted_ath": 541.094970703125
+        },
+        {
+          "date": "2024-07-09",
+          "adjusted_ath": 541.6211547851562
+        },
+        {
+          "date": "2024-07-10",
+          "adjusted_ath": 546.9806518554688
+        },
+        {
+          "date": "2024-07-15",
+          "adjusted_ath": 547.185302734375
+        },
+        {
+          "date": "2024-07-16",
+          "adjusted_ath": 550.4302368164062
+        },
+        {
+          "date": "2024-09-19",
+          "adjusted_ath": 556.3938598632812
+        },
+        {
+          "date": "2024-09-23",
+          "adjusted_ath": 556.8200073242188
+        },
+        {
+          "date": "2024-09-24",
+          "adjusted_ath": 558.4132690429688
+        },
+        {
+          "date": "2024-09-26",
+          "adjusted_ath": 559.3908081054688
+        },
+        {
+          "date": "2024-09-30",
+          "adjusted_ath": 560.8178100585938
+        },
+        {
+          "date": "2024-10-09",
+          "adjusted_ath": 564.1214599609375
+        },
+        {
+          "date": "2024-10-11",
+          "adjusted_ath": 566.5065307617188
+        },
+        {
+          "date": "2024-10-14",
+          "adjusted_ath": 571.1396484375
+        },
+        {
+          "date": "2024-10-18",
+          "adjusted_ath": 571.403564453125
+        },
+        {
+          "date": "2024-11-06",
+          "adjusted_ath": 577.7080688476562
+        },
+        {
+          "date": "2024-11-07",
+          "adjusted_ath": 582.1749267578125
+        },
+        {
+          "date": "2024-11-08",
+          "adjusted_ath": 584.69677734375
+        },
+        {
+          "date": "2024-11-11",
+          "adjusted_ath": 585.2539672851562
+        },
+        {
+          "date": "2024-11-26",
+          "adjusted_ath": 587.1012573242188
+        },
+        {
+          "date": "2024-11-29",
+          "adjusted_ath": 588.9583740234375
+        },
+        {
+          "date": "2024-12-02",
+          "adjusted_ath": 590.0140991210938
+        },
+        {
+          "date": "2024-12-03",
+          "adjusted_ath": 590.2877197265625
+        },
+        {
+          "date": "2024-12-04",
+          "adjusted_ath": 593.9530029296875
+        },
+        {
+          "date": "2024-12-06",
+          "adjusted_ath": 594.0997314453125
+        },
+        {
+          "date": "2025-01-22",
+          "adjusted_ath": 594.7556762695312
+        },
+        {
+          "date": "2025-01-23",
+          "adjusted_ath": 598.0018920898438
+        },
+        {
+          "date": "2025-02-18",
+          "adjusted_ath": 599.7083740234375
+        },
+        {
+          "date": "2025-02-19",
+          "adjusted_ath": 601.1206665039062
+        },
+        {
+          "date": "2025-06-26",
+          "adjusted_ath": 603.66552734375
+        },
+        {
+          "date": "2025-06-27",
+          "adjusted_ath": 606.664794921875
+        },
+        {
+          "date": "2025-06-30",
+          "adjusted_ath": 609.5654296875
+        },
+        {
+          "date": "2025-07-02",
+          "adjusted_ath": 612.1305541992188
+        },
+        {
+          "date": "2025-07-03",
+          "adjusted_ath": 616.9549560546875
+        },
+        {
+          "date": "2025-07-10",
+          "adjusted_ath": 617.4285278320312
+        },
+        {
+          "date": "2025-07-17",
+          "adjusted_ath": 619.6187133789062
+        },
+        {
+          "date": "2025-07-21",
+          "adjusted_ath": 620.3389892578125
+        },
+        {
+          "date": "2025-07-22",
+          "adjusted_ath": 620.427734375
+        },
+        {
+          "date": "2025-07-23",
+          "adjusted_ath": 625.7061157226562
+        },
+        {
+          "date": "2025-07-24",
+          "adjusted_ath": 625.9132080078125
+        },
+        {
+          "date": "2025-07-25",
+          "adjusted_ath": 628.5572509765625
+        },
+        {
+          "date": "2025-08-08",
+          "adjusted_ath": 628.6361694335938
+        },
+        {
+          "date": "2025-08-12",
+          "adjusted_ath": 634.072265625
+        },
+        {
+          "date": "2025-08-13",
+          "adjusted_ath": 636.2427978515625
+        },
+        {
+          "date": "2025-08-14",
+          "adjusted_ath": 636.302001953125
+        },
+        {
+          "date": "2025-08-22",
+          "adjusted_ath": 636.6571044921875
+        },
+        {
+          "date": "2025-08-27",
+          "adjusted_ath": 637.95947265625
+        },
+        {
+          "date": "2025-08-28",
+          "adjusted_ath": 640.21875
+        },
+        {
+          "date": "2025-09-04",
+          "adjusted_ath": 640.4161376953125
+        },
+        {
+          "date": "2025-09-09",
+          "adjusted_ath": 641.6099243164062
+        },
+        {
+          "date": "2025-09-10",
+          "adjusted_ath": 643.4647216796875
+        },
+        {
+          "date": "2025-09-11",
+          "adjusted_ath": 648.81201171875
+        },
+        {
+          "date": "2025-09-15",
+          "adjusted_ath": 652.0480346679688
+        },
+        {
+          "date": "2025-09-18",
+          "adjusted_ath": 653.3798828125
+        },
+        {
+          "date": "2025-09-19",
+          "adjusted_ath": 656.6160278320312
+        },
+        {
+          "date": "2025-09-22",
+          "adjusted_ath": 659.7225341796875
+        },
+        {
+          "date": "2025-10-01",
+          "adjusted_ath": 661.3153686523438
+        },
+        {
+          "date": "2025-10-02",
+          "adjusted_ath": 662.0769653320312
+        },
+        {
+          "date": "2025-10-06",
+          "adjusted_ath": 664.4415893554688
+        },
+        {
+          "date": "2025-10-08",
+          "adjusted_ath": 665.925537109375
+        },
+        {
+          "date": "2025-10-24",
+          "adjusted_ath": 670.0213623046875
+        },
+        {
+          "date": "2025-10-27",
+          "adjusted_ath": 677.9260864257812
+        },
+        {
+          "date": "2025-10-28",
+          "adjusted_ath": 679.7266235351562
+        },
+        {
+          "date": "2025-10-29",
+          "adjusted_ath": 680.05322265625
+        },
+        {
+          "date": "2025-12-10",
+          "adjusted_ath": 680.2312622070312
+        },
+        {
+          "date": "2025-12-11",
+          "adjusted_ath": 681.8140869140625
+        },
+        {
+          "date": "2025-12-23",
+          "adjusted_ath": 682.6282348632812
+        },
+        {
+          "date": "2025-12-24",
+          "adjusted_ath": 685.0294799804688
+        },
+        {
+          "date": "2026-01-06",
+          "adjusted_ath": 686.4483642578125
+        },
+        {
+          "date": "2026-01-09",
+          "adjusted_ath": 688.6908569335938
+        },
+        {
+          "date": "2026-01-12",
+          "adjusted_ath": 689.7723388671875
+        },
+        {
+          "date": "2026-01-27",
+          "adjusted_ath": 690.099853515625
+        },
+        {
+          "date": "2026-04-14",
+          "adjusted_ath": 690.959716796875
+        },
+        {
+          "date": "2026-04-15",
+          "adjusted_ath": 696.412109375
+        },
+        {
+          "date": "2026-04-16",
+          "adjusted_ath": 698.1234130859375
+        },
+        {
+          "date": "2026-04-17",
+          "adjusted_ath": 706.5607299804688
+        },
+        {
+          "date": "2026-04-22",
+          "adjusted_ath": 707.6253051757812
+        },
+        {
+          "date": "2026-04-24",
+          "adjusted_ath": 710.3414916992188
+        },
+        {
+          "date": "2026-04-27",
+          "adjusted_ath": 711.5653686523438
+        },
+        {
+          "date": "2026-04-30",
+          "adjusted_ath": 715.0377197265625
+        },
+        {
+          "date": "2026-05-01",
+          "adjusted_ath": 717.0177001953125
+        },
+        {
+          "date": "2026-05-05",
+          "adjusted_ath": 720.1220092773438
+        },
+        {
+          "date": "2026-05-06",
+          "adjusted_ath": 730.1312866210938
+        },
+        {
+          "date": "2026-05-08",
+          "adjusted_ath": 733.9021606445312
+        },
+        {
+          "date": "2026-05-11",
+          "adjusted_ath": 735.5736694335938
+        },
+        {
+          "date": "2026-05-13",
+          "adjusted_ath": 738.5685424804688
+        },
+        {
+          "date": "2026-05-14",
+          "adjusted_ath": 744.3989868164062
+        },
+        {
+          "date": "2026-05-26",
+          "adjusted_ath": 746.8068237304688
+        },
+        {
+          "date": "2026-05-28",
+          "adjusted_ath": 750.7965698242188
+        },
+        {
+          "date": "2026-05-29",
+          "adjusted_ath": 752.6671142578125
+        },
+        {
+          "date": "2026-06-01",
+          "adjusted_ath": 754.7166748046875
+        },
+        {
+          "date": "2026-06-02",
+          "adjusted_ath": 755.7415771484375
+        },
+        {
+          "date": "2026-08-03",
+          "adjusted_ath": 755.793212890625
+        },
+        {
+          "date": "2026-08-04",
+          "adjusted_ath": 769.4193725585938
+        },
+        {
+          "date": "2026-08-07",
+          "adjusted_ath": 771.3446044921875
+        },
+        {
+          "date": "2026-08-13",
+          "adjusted_ath": 775.9531860351562
+        },
+        {
+          "date": "2026-10-06",
+          "adjusted_ath": 779.0900268554688
+        }
+      ],
+      "history_sessions": 252,
+      "history": [
+        {
+          "date": "2025-11-26",
+          "close": 679.6799926757812,
+          "adjusted_close": 672.4254760742188
+        },
+        {
+          "date": "2025-11-28",
+          "close": 683.3900146484375,
+          "adjusted_close": 676.0958862304688
+        },
+        {
+          "date": "2025-12-01",
+          "close": 680.27001953125,
+          "adjusted_close": 673.0091552734375
+        },
+        {
+          "date": "2025-12-02",
+          "close": 681.530029296875,
+          "adjusted_close": 674.2556762695312
+        },
+        {
+          "date": "2025-12-03",
+          "close": 683.8900146484375,
+          "adjusted_close": 676.590576171875
+        },
+        {
+          "date": "2025-12-04",
+          "close": 684.3900146484375,
+          "adjusted_close": 677.0851440429688
+        },
+        {
+          "date": "2025-12-05",
+          "close": 685.6900024414062,
+          "adjusted_close": 678.3712768554688
+        },
+        {
+          "date": "2025-12-08",
+          "close": 683.6300048828125,
+          "adjusted_close": 676.333251953125
+        },
+        {
+          "date": "2025-12-09",
+          "close": 683.0399780273438,
+          "adjusted_close": 675.7495727539062
+        },
+        {
+          "date": "2025-12-10",
+          "close": 687.5700073242188,
+          "adjusted_close": 680.2312622070312
+        },
+        {
+          "date": "2025-12-11",
+          "close": 689.1699829101562,
+          "adjusted_close": 681.8140869140625
+        },
+        {
+          "date": "2025-12-12",
+          "close": 681.760009765625,
+          "adjusted_close": 674.4832763671875
+        },
+        {
+          "date": "2025-12-15",
+          "close": 680.72998046875,
+          "adjusted_close": 673.4642333984375
+        },
+        {
+          "date": "2025-12-16",
+          "close": 678.8699951171875,
+          "adjusted_close": 671.6240844726562
+        },
+        {
+          "date": "2025-12-17",
+          "close": 671.4000244140625,
+          "adjusted_close": 664.2338256835938
+        },
+        {
+          "date": "2025-12-18",
+          "close": 676.469970703125,
+          "adjusted_close": 669.2496948242188
+        },
+        {
+          "date": "2025-12-19",
+          "close": 680.5900268554688,
+          "adjusted_close": 675.3153686523438
+        },
+        {
+          "date": "2025-12-22",
+          "close": 684.8300170898438,
+          "adjusted_close": 679.5225219726562
+        },
+        {
+          "date": "2025-12-23",
+          "close": 687.9600219726562,
+          "adjusted_close": 682.6282348632812
+        },
+        {
+          "date": "2025-12-24",
+          "close": 690.3800048828125,
+          "adjusted_close": 685.0294799804688
+        },
+        {
+          "date": "2025-12-26",
+          "close": 690.3099975585938,
+          "adjusted_close": 684.9599609375
+        },
+        {
+          "date": "2025-12-29",
+          "close": 687.8499755859375,
+          "adjusted_close": 682.51904296875
+        },
+        {
+          "date": "2025-12-30",
+          "close": 687.010009765625,
+          "adjusted_close": 681.6856079101562
+        },
+        {
+          "date": "2025-12-31",
+          "close": 681.9199829101562,
+          "adjusted_close": 676.635009765625
+        },
+        {
+          "date": "2026-01-02",
+          "close": 683.1699829101562,
+          "adjusted_close": 677.8753662109375
+        },
+        {
+          "date": "2026-01-05",
+          "close": 687.719970703125,
+          "adjusted_close": 682.3900756835938
+        },
+        {
+          "date": "2026-01-06",
+          "close": 691.8099975585938,
+          "adjusted_close": 686.4483642578125
+        },
+        {
+          "date": "2026-01-07",
+          "close": 689.5800170898438,
+          "adjusted_close": 684.2356567382812
+        },
+        {
+          "date": "2026-01-08",
+          "close": 689.510009765625,
+          "adjusted_close": 684.1661987304688
+        },
+        {
+          "date": "2026-01-09",
+          "close": 694.0700073242188,
+          "adjusted_close": 688.6908569335938
+        },
+        {
+          "date": "2026-01-12",
+          "close": 695.1599731445312,
+          "adjusted_close": 689.7723388671875
+        },
+        {
+          "date": "2026-01-13",
+          "close": 693.77001953125,
+          "adjusted_close": 688.3932495117188
+        },
+        {
+          "date": "2026-01-14",
+          "close": 690.3599853515625,
+          "adjusted_close": 685.0095825195312
+        },
+        {
+          "date": "2026-01-15",
+          "close": 692.239990234375,
+          "adjusted_close": 686.8750610351562
+        },
+        {
+          "date": "2026-01-16",
+          "close": 691.6599731445312,
+          "adjusted_close": 686.2994995117188
+        },
+        {
+          "date": "2026-01-20",
+          "close": 677.5800170898438,
+          "adjusted_close": 672.3286743164062
+        },
+        {
+          "date": "2026-01-21",
+          "close": 685.4000244140625,
+          "adjusted_close": 680.0880126953125
+        },
+        {
+          "date": "2026-01-22",
+          "close": 688.97998046875,
+          "adjusted_close": 683.6403198242188
+        },
+        {
+          "date": "2026-01-23",
+          "close": 689.22998046875,
+          "adjusted_close": 683.8883056640625
+        },
+        {
+          "date": "2026-01-26",
+          "close": 692.72998046875,
+          "adjusted_close": 687.3612060546875
+        },
+        {
+          "date": "2026-01-27",
+          "close": 695.489990234375,
+          "adjusted_close": 690.099853515625
+        },
+        {
+          "date": "2026-01-28",
+          "close": 695.4199829101562,
+          "adjusted_close": 690.0303344726562
+        },
+        {
+          "date": "2026-01-29",
+          "close": 694.0399780273438,
+          "adjusted_close": 688.6610717773438
+        },
+        {
+          "date": "2026-01-30",
+          "close": 691.969970703125,
+          "adjusted_close": 686.6071166992188
+        },
+        {
+          "date": "2026-02-02",
+          "close": 695.4099731445312,
+          "adjusted_close": 690.0204467773438
+        },
+        {
+          "date": "2026-02-03",
+          "close": 689.530029296875,
+          "adjusted_close": 684.18603515625
+        },
+        {
+          "date": "2026-02-04",
+          "close": 686.1900024414062,
+          "adjusted_close": 680.8719482421875
+        },
+        {
+          "date": "2026-02-05",
+          "close": 677.6199951171875,
+          "adjusted_close": 672.3683471679688
+        },
+        {
+          "date": "2026-02-06",
+          "close": 690.6199951171875,
+          "adjusted_close": 685.267578125
+        },
+        {
+          "date": "2026-02-09",
+          "close": 693.9500122070312,
+          "adjusted_close": 688.57177734375
+        },
+        {
+          "date": "2026-02-10",
+          "close": 692.1199951171875,
+          "adjusted_close": 686.7559814453125
+        },
+        {
+          "date": "2026-02-11",
+          "close": 691.9600219726562,
+          "adjusted_close": 686.5972290039062
+        },
+        {
+          "date": "2026-02-12",
+          "close": 681.27001953125,
+          "adjusted_close": 675.9901123046875
+        },
+        {
+          "date": "2026-02-13",
+          "close": 681.75,
+          "adjusted_close": 676.46630859375
+        },
+        {
+          "date": "2026-02-17",
+          "close": 682.8499755859375,
+          "adjusted_close": 677.5578002929688
+        },
+        {
+          "date": "2026-02-18",
+          "close": 686.2899780273438,
+          "adjusted_close": 680.9711303710938
+        },
+        {
+          "date": "2026-02-19",
+          "close": 684.47998046875,
+          "adjusted_close": 679.1751708984375
+        },
+        {
+          "date": "2026-02-20",
+          "close": 689.4299926757812,
+          "adjusted_close": 684.0867919921875
+        },
+        {
+          "date": "2026-02-23",
+          "close": 682.3900146484375,
+          "adjusted_close": 677.1013793945312
+        },
+        {
+          "date": "2026-02-24",
+          "close": 687.3499755859375,
+          "adjusted_close": 682.0228881835938
+        },
+        {
+          "date": "2026-02-25",
+          "close": 693.1500244140625,
+          "adjusted_close": 687.778076171875
+        },
+        {
+          "date": "2026-02-26",
+          "close": 689.2999877929688,
+          "adjusted_close": 683.9578247070312
+        },
+        {
+          "date": "2026-02-27",
+          "close": 685.989990234375,
+          "adjusted_close": 680.6734619140625
+        },
+        {
+          "date": "2026-03-02",
+          "close": 686.3800048828125,
+          "adjusted_close": 681.0604858398438
+        },
+        {
+          "date": "2026-03-03",
+          "close": 680.3300170898438,
+          "adjusted_close": 675.057373046875
+        },
+        {
+          "date": "2026-03-04",
+          "close": 685.1300048828125,
+          "adjusted_close": 679.820068359375
+        },
+        {
+          "date": "2026-03-05",
+          "close": 681.3099975585938,
+          "adjusted_close": 676.0297241210938
+        },
+        {
+          "date": "2026-03-06",
+          "close": 672.3800048828125,
+          "adjusted_close": 667.1688842773438
+        },
+        {
+          "date": "2026-03-09",
+          "close": 678.27001953125,
+          "adjusted_close": 673.0133666992188
+        },
+        {
+          "date": "2026-03-10",
+          "close": 677.1799926757812,
+          "adjusted_close": 671.9317016601562
+        },
+        {
+          "date": "2026-03-11",
+          "close": 676.3300170898438,
+          "adjusted_close": 671.08837890625
+        },
+        {
+          "date": "2026-03-12",
+          "close": 666.0599975585938,
+          "adjusted_close": 660.8978881835938
+        },
+        {
+          "date": "2026-03-13",
+          "close": 662.2899780273438,
+          "adjusted_close": 657.1571655273438
+        },
+        {
+          "date": "2026-03-16",
+          "close": 669.030029296875,
+          "adjusted_close": 663.844970703125
+        },
+        {
+          "date": "2026-03-17",
+          "close": 670.7899780273438,
+          "adjusted_close": 665.5912475585938
+        },
+        {
+          "date": "2026-03-18",
+          "close": 661.4299926757812,
+          "adjusted_close": 656.3038330078125
+        },
+        {
+          "date": "2026-03-19",
+          "close": 659.7999877929688,
+          "adjusted_close": 654.6864624023438
+        },
+        {
+          "date": "2026-03-20",
+          "close": 648.5700073242188,
+          "adjusted_close": 645.3009643554688
+        },
+        {
+          "date": "2026-03-23",
+          "close": 655.3800048828125,
+          "adjusted_close": 652.07666015625
+        },
+        {
+          "date": "2026-03-24",
+          "close": 653.1799926757812,
+          "adjusted_close": 649.8877563476562
+        },
+        {
+          "date": "2026-03-25",
+          "close": 656.8200073242188,
+          "adjusted_close": 653.5094604492188
+        },
+        {
+          "date": "2026-03-26",
+          "close": 645.0900268554688,
+          "adjusted_close": 641.838623046875
+        },
+        {
+          "date": "2026-03-27",
+          "close": 634.0900268554688,
+          "adjusted_close": 630.89404296875
+        },
+        {
+          "date": "2026-03-30",
+          "close": 631.969970703125,
+          "adjusted_close": 628.78466796875
+        },
+        {
+          "date": "2026-03-31",
+          "close": 650.3400268554688,
+          "adjusted_close": 647.0621337890625
+        },
+        {
+          "date": "2026-04-01",
+          "close": 655.239990234375,
+          "adjusted_close": 651.9373779296875
+        },
+        {
+          "date": "2026-04-02",
+          "close": 655.8300170898438,
+          "adjusted_close": 652.5244750976562
+        },
+        {
+          "date": "2026-04-06",
+          "close": 658.9299926757812,
+          "adjusted_close": 655.6087646484375
+        },
+        {
+          "date": "2026-04-07",
+          "close": 659.219970703125,
+          "adjusted_close": 655.8972778320312
+        },
+        {
+          "date": "2026-04-08",
+          "close": 676.010009765625,
+          "adjusted_close": 672.6027221679688
+        },
+        {
+          "date": "2026-04-09",
+          "close": 679.9099731445312,
+          "adjusted_close": 676.4830322265625
+        },
+        {
+          "date": "2026-04-10",
+          "close": 679.4600219726562,
+          "adjusted_close": 676.0353393554688
+        },
+        {
+          "date": "2026-04-13",
+          "close": 686.0999755859375,
+          "adjusted_close": 682.6417846679688
+        },
+        {
+          "date": "2026-04-14",
+          "close": 694.4600219726562,
+          "adjusted_close": 690.959716796875
+        },
+        {
+          "date": "2026-04-15",
+          "close": 699.9400024414062,
+          "adjusted_close": 696.412109375
+        },
+        {
+          "date": "2026-04-16",
+          "close": 701.6599731445312,
+          "adjusted_close": 698.1234130859375
+        },
+        {
+          "date": "2026-04-17",
+          "close": 710.1400146484375,
+          "adjusted_close": 706.5607299804688
+        },
+        {
+          "date": "2026-04-20",
+          "close": 708.719970703125,
+          "adjusted_close": 705.1477661132812
+        },
+        {
+          "date": "2026-04-21",
+          "close": 704.0800170898438,
+          "adjusted_close": 700.53125
+        },
+        {
+          "date": "2026-04-22",
+          "close": 711.2100219726562,
+          "adjusted_close": 707.6253051757812
+        },
+        {
+          "date": "2026-04-23",
+          "close": 708.4500122070312,
+          "adjusted_close": 704.8792114257812
+        },
+        {
+          "date": "2026-04-24",
+          "close": 713.9400024414062,
+          "adjusted_close": 710.3414916992188
+        },
+        {
+          "date": "2026-04-27",
+          "close": 715.1699829101562,
+          "adjusted_close": 711.5653686523438
+        },
+        {
+          "date": "2026-04-28",
+          "close": 711.6900024414062,
+          "adjusted_close": 708.1029052734375
+        },
+        {
+          "date": "2026-04-29",
+          "close": 711.5800170898438,
+          "adjusted_close": 707.993408203125
+        },
+        {
+          "date": "2026-04-30",
+          "close": 718.6599731445312,
+          "adjusted_close": 715.0377197265625
+        },
+        {
+          "date": "2026-05-01",
+          "close": 720.6500244140625,
+          "adjusted_close": 717.0177001953125
+        },
+        {
+          "date": "2026-05-04",
+          "close": 718.010009765625,
+          "adjusted_close": 714.3909912109375
+        },
+        {
+          "date": "2026-05-05",
+          "close": 723.77001953125,
+          "adjusted_close": 720.1220092773438
+        },
+        {
+          "date": "2026-05-06",
+          "close": 733.8300170898438,
+          "adjusted_close": 730.1312866210938
+        },
+        {
+          "date": "2026-05-07",
+          "close": 731.5800170898438,
+          "adjusted_close": 727.8926391601562
+        },
+        {
+          "date": "2026-05-08",
+          "close": 737.6199951171875,
+          "adjusted_close": 733.9021606445312
+        },
+        {
+          "date": "2026-05-11",
+          "close": 739.2999877929688,
+          "adjusted_close": 735.5736694335938
+        },
+        {
+          "date": "2026-05-12",
+          "close": 738.1799926757812,
+          "adjusted_close": 734.4593505859375
+        },
+        {
+          "date": "2026-05-13",
+          "close": 742.3099975585938,
+          "adjusted_close": 738.5685424804688
+        },
+        {
+          "date": "2026-05-14",
+          "close": 748.1699829101562,
+          "adjusted_close": 744.3989868164062
+        },
+        {
+          "date": "2026-05-15",
+          "close": 739.1699829101562,
+          "adjusted_close": 735.4443969726562
+        },
+        {
+          "date": "2026-05-18",
+          "close": 738.6500244140625,
+          "adjusted_close": 734.927001953125
+        },
+        {
+          "date": "2026-05-19",
+          "close": 733.72998046875,
+          "adjusted_close": 730.03173828125
+        },
+        {
+          "date": "2026-05-20",
+          "close": 741.25,
+          "adjusted_close": 737.5138549804688
+        },
+        {
+          "date": "2026-05-21",
+          "close": 742.719970703125,
+          "adjusted_close": 738.9764404296875
+        },
+        {
+          "date": "2026-05-22",
+          "close": 745.6400146484375,
+          "adjusted_close": 741.8817749023438
+        },
+        {
+          "date": "2026-05-26",
+          "close": 750.5900268554688,
+          "adjusted_close": 746.8068237304688
+        },
+        {
+          "date": "2026-05-27",
+          "close": 750.4600219726562,
+          "adjusted_close": 746.6774291992188
+        },
+        {
+          "date": "2026-05-28",
+          "close": 754.5999755859375,
+          "adjusted_close": 750.7965698242188
+        },
+        {
+          "date": "2026-05-29",
+          "close": 756.47998046875,
+          "adjusted_close": 752.6671142578125
+        },
+        {
+          "date": "2026-06-01",
+          "close": 758.5399780273438,
+          "adjusted_close": 754.7166748046875
+        },
+        {
+          "date": "2026-06-02",
+          "close": 759.5700073242188,
+          "adjusted_close": 755.7415771484375
+        },
+        {
+          "date": "2026-06-03",
+          "close": 754.239990234375,
+          "adjusted_close": 750.4384155273438
+        },
+        {
+          "date": "2026-06-04",
+          "close": 757.0900268554688,
+          "adjusted_close": 753.2740478515625
+        },
+        {
+          "date": "2026-06-05",
+          "close": 737.5499877929688,
+          "adjusted_close": 733.83251953125
+        },
+        {
+          "date": "2026-06-08",
+          "close": 739.219970703125,
+          "adjusted_close": 735.4940795898438
+        },
+        {
+          "date": "2026-06-09",
+          "close": 737.0499877929688,
+          "adjusted_close": 733.3350830078125
+        },
+        {
+          "date": "2026-06-10",
+          "close": 725.4299926757812,
+          "adjusted_close": 721.7736206054688
+        },
+        {
+          "date": "2026-06-11",
+          "close": 737.760009765625,
+          "adjusted_close": 734.04150390625
+        },
+        {
+          "date": "2026-06-12",
+          "close": 741.75,
+          "adjusted_close": 738.0113525390625
+        },
+        {
+          "date": "2026-06-15",
+          "close": 754.8300170898438,
+          "adjusted_close": 751.0254516601562
+        },
+        {
+          "date": "2026-06-16",
+          "close": 750.3300170898438,
+          "adjusted_close": 746.5481567382812
+        },
+        {
+          "date": "2026-06-17",
+          "close": 740.9600219726562,
+          "adjusted_close": 737.225341796875
+        },
+        {
+          "date": "2026-06-18",
+          "close": 746.739990234375,
+          "adjusted_close": 744.8902587890625
+        },
+        {
+          "date": "2026-06-22",
+          "close": 744.3900146484375,
+          "adjusted_close": 742.546142578125
+        },
+        {
+          "date": "2026-06-23",
+          "close": 733.5800170898438,
+          "adjusted_close": 731.7628784179688
+        },
+        {
+          "date": "2026-06-24",
+          "close": 733.239990234375,
+          "adjusted_close": 731.4237060546875
+        },
+        {
+          "date": "2026-06-25",
+          "close": 734.2999877929688,
+          "adjusted_close": 732.4810791015625
+        },
+        {
+          "date": "2026-06-26",
+          "close": 728.989990234375,
+          "adjusted_close": 727.1842651367188
+        },
+        {
+          "date": "2026-06-29",
+          "close": 741.0,
+          "adjusted_close": 739.1644897460938
+        },
+        {
+          "date": "2026-06-30",
+          "close": 746.77001953125,
+          "adjusted_close": 744.9202270507812
+        },
+        {
+          "date": "2026-07-01",
+          "close": 745.760009765625,
+          "adjusted_close": 743.9127197265625
+        },
+        {
+          "date": "2026-07-02",
+          "close": 744.780029296875,
+          "adjusted_close": 742.9351806640625
+        },
+        {
+          "date": "2026-07-06",
+          "close": 751.280029296875,
+          "adjusted_close": 749.4190673828125
+        },
+        {
+          "date": "2026-07-07",
+          "close": 747.7100219726562,
+          "adjusted_close": 745.85791015625
+        },
+        {
+          "date": "2026-07-08",
+          "close": 745.4000244140625,
+          "adjusted_close": 743.5536499023438
+        },
+        {
+          "date": "2026-07-09",
+          "close": 751.7100219726562,
+          "adjusted_close": 749.8480224609375
+        },
+        {
+          "date": "2026-07-10",
+          "close": 754.9500122070312,
+          "adjusted_close": 753.0799560546875
+        },
+        {
+          "date": "2026-07-13",
+          "close": 749.1699829101562,
+          "adjusted_close": 747.3142700195312
+        },
+        {
+          "date": "2026-07-14",
+          "close": 751.8300170898438,
+          "adjusted_close": 749.9677124023438
+        },
+        {
+          "date": "2026-07-15",
+          "close": 754.8099975585938,
+          "adjusted_close": 752.9403076171875
+        },
+        {
+          "date": "2026-07-16",
+          "close": 750.719970703125,
+          "adjusted_close": 748.8604125976562
+        },
+        {
+          "date": "2026-07-17",
+          "close": 743.2899780273438,
+          "adjusted_close": 741.4487915039062
+        },
+        {
+          "date": "2026-07-20",
+          "close": 742.0900268554688,
+          "adjusted_close": 740.2518310546875
+        },
+        {
+          "date": "2026-07-21",
+          "close": 748.280029296875,
+          "adjusted_close": 746.426513671875
+        },
+        {
+          "date": "2026-07-22",
+          "close": 747.4099731445312,
+          "adjusted_close": 745.55859375
+        },
+        {
+          "date": "2026-07-23",
+          "close": 738.1799926757812,
+          "adjusted_close": 736.3515014648438
+        },
+        {
+          "date": "2026-07-24",
+          "close": 738.9299926757812,
+          "adjusted_close": 737.099609375
+        },
+        {
+          "date": "2026-07-27",
+          "close": 739.0900268554688,
+          "adjusted_close": 737.25927734375
+        },
+        {
+          "date": "2026-07-28",
+          "close": 740.8599853515625,
+          "adjusted_close": 739.0248413085938
+        },
+        {
+          "date": "2026-07-29",
+          "close": 729.4600219726562,
+          "adjusted_close": 727.6531372070312
+        },
+        {
+          "date": "2026-07-30",
+          "close": 741.6900024414062,
+          "adjusted_close": 739.852783203125
+        },
+        {
+          "date": "2026-07-31",
+          "close": 747.030029296875,
+          "adjusted_close": 745.1796264648438
+        },
+        {
+          "date": "2026-08-03",
+          "close": 757.6699829101562,
+          "adjusted_close": 755.793212890625
+        },
+        {
+          "date": "2026-08-04",
+          "close": 771.3300170898438,
+          "adjusted_close": 769.4193725585938
+        },
+        {
+          "date": "2026-08-05",
+          "close": 769.7899780273438,
+          "adjusted_close": 767.8831787109375
+        },
+        {
+          "date": "2026-08-06",
+          "close": 768.5599975585938,
+          "adjusted_close": 766.65625
+        },
+        {
+          "date": "2026-08-07",
+          "close": 773.260009765625,
+          "adjusted_close": 771.3446044921875
+        },
+        {
+          "date": "2026-08-10",
+          "close": 773.030029296875,
+          "adjusted_close": 771.1151733398438
+        },
+        {
+          "date": "2026-08-11",
+          "close": 770.5599975585938,
+          "adjusted_close": 768.6513061523438
+        },
+        {
+          "date": "2026-08-12",
+          "close": 772.489990234375,
+          "adjusted_close": 770.5764770507812
+        },
+        {
+          "date": "2026-08-13",
+          "close": 777.8800048828125,
+          "adjusted_close": 775.9531860351562
+        },
+        {
+          "date": "2026-08-14",
+          "close": 776.3400268554688,
+          "adjusted_close": 774.4169921875
+        },
+        {
+          "date": "2026-08-17",
+          "close": 772.6699829101562,
+          "adjusted_close": 770.7560424804688
+        },
+        {
+          "date": "2026-08-18",
+          "close": 767.4500122070312,
+          "adjusted_close": 765.5490112304688
+        },
+        {
+          "date": "2026-08-19",
+          "close": 769.0599975585938,
+          "adjusted_close": 767.1549682617188
+        },
+        {
+          "date": "2026-08-20",
+          "close": 762.5999755859375,
+          "adjusted_close": 760.7109985351562
+        },
+        {
+          "date": "2026-08-21",
+          "close": 765.719970703125,
+          "adjusted_close": 763.8232421875
+        },
+        {
+          "date": "2026-08-24",
+          "close": 763.469970703125,
+          "adjusted_close": 761.5787963867188
+        },
+        {
+          "date": "2026-08-25",
+          "close": 765.9099731445312,
+          "adjusted_close": 764.0127563476562
+        },
+        {
+          "date": "2026-08-26",
+          "close": 766.0800170898438,
+          "adjusted_close": 764.182373046875
+        },
+        {
+          "date": "2026-08-27",
+          "close": 771.0999755859375,
+          "adjusted_close": 769.18994140625
+        },
+        {
+          "date": "2026-08-28",
+          "close": 769.3499755859375,
+          "adjusted_close": 767.4442749023438
+        },
+        {
+          "date": "2026-08-31",
+          "close": 767.0499877929688,
+          "adjusted_close": 765.1499633789062
+        },
+        {
+          "date": "2026-09-01",
+          "close": 761.780029296875,
+          "adjusted_close": 759.89306640625
+        },
+        {
+          "date": "2026-09-02",
+          "close": 765.1599731445312,
+          "adjusted_close": 763.2646484375
+        },
+        {
+          "date": "2026-09-03",
+          "close": 773.1699829101562,
+          "adjusted_close": 771.2548217773438
+        },
+        {
+          "date": "2026-09-04",
+          "close": 770.1900024414062,
+          "adjusted_close": 768.2822265625
+        },
+        {
+          "date": "2026-09-08",
+          "close": 765.9600219726562,
+          "adjusted_close": 764.0626831054688
+        },
+        {
+          "date": "2026-09-09",
+          "close": 762.4000244140625,
+          "adjusted_close": 760.5115356445312
+        },
+        {
+          "date": "2026-09-10",
+          "close": 757.8300170898438,
+          "adjusted_close": 755.9528198242188
+        },
+        {
+          "date": "2026-09-11",
+          "close": 764.2899780273438,
+          "adjusted_close": 762.3967895507812
+        },
+        {
+          "date": "2026-09-14",
+          "close": 760.8800048828125,
+          "adjusted_close": 758.9952392578125
+        },
+        {
+          "date": "2026-09-15",
+          "close": 757.3900146484375,
+          "adjusted_close": 755.513916015625
+        },
+        {
+          "date": "2026-09-16",
+          "close": 754.0499877929688,
+          "adjusted_close": 752.1821899414062
+        },
+        {
+          "date": "2026-09-17",
+          "close": 762.5999755859375,
+          "adjusted_close": 760.7109985351562
+        },
+        {
+          "date": "2026-09-18",
+          "close": 761.6900024414062,
+          "adjusted_close": 761.6900024414062
+        },
+        {
+          "date": "2026-09-21",
+          "close": 773.5,
+          "adjusted_close": 773.5
+        },
+        {
+          "date": "2026-09-22",
+          "close": 773.3800048828125,
+          "adjusted_close": 773.3800048828125
+        },
+        {
+          "date": "2026-09-23",
+          "close": 767.8099975585938,
+          "adjusted_close": 767.8099975585938
+        },
+        {
+          "date": "2026-09-24",
+          "close": 767.1799926757812,
+          "adjusted_close": 767.1799926757812
+        },
+        {
+          "date": "2026-09-25",
+          "close": 771.3499755859375,
+          "adjusted_close": 771.3499755859375
+        },
+        {
+          "date": "2026-09-28",
+          "close": 765.6099853515625,
+          "adjusted_close": 765.6099853515625
+        },
+        {
+          "date": "2026-09-29",
+          "close": 764.2000122070312,
+          "adjusted_close": 764.2000122070312
+        },
+        {
+          "date": "2026-09-30",
+          "close": 762.6300048828125,
+          "adjusted_close": 762.6300048828125
+        },
+        {
+          "date": "2026-10-01",
+          "close": 763.989990234375,
+          "adjusted_close": 763.989990234375
+        },
+        {
+          "date": "2026-10-02",
+          "close": 769.6400146484375,
+          "adjusted_close": 769.6400146484375
+        },
+        {
+          "date": "2026-10-05",
+          "close": 774.8300170898438,
+          "adjusted_close": 774.8300170898438
+        },
+        {
+          "date": "2026-10-06",
+          "close": 779.0900268554688,
+          "adjusted_close": 779.0900268554688
+        },
+        {
+          "date": "2026-10-07",
+          "close": 777.219970703125,
+          "adjusted_close": 777.219970703125
+        },
+        {
+          "date": "2026-10-08",
+          "close": 773.9299926757812,
+          "adjusted_close": 773.9299926757812
+        },
+        {
+          "date": "2026-10-09",
+          "close": 778.5700073242188,
+          "adjusted_close": 778.5700073242188
+        },
+        {
+          "date": "2026-10-12",
+          "close": 778.0999755859375,
+          "adjusted_close": 778.0999755859375
+        },
+        {
+          "date": "2026-10-13",
+          "close": 778.010009765625,
+          "adjusted_close": 778.010009765625
+        },
+        {
+          "date": "2026-10-14",
+          "close": 769.5999755859375,
+          "adjusted_close": 769.5999755859375
+        },
+        {
+          "date": "2026-10-15",
+          "close": 771.7899780273438,
+          "adjusted_close": 771.7899780273438
+        },
+        {
+          "date": "2026-10-16",
+          "close": 763.25,
+          "adjusted_close": 763.25
+        },
+        {
+          "date": "2026-10-19",
+          "close": 766.47998046875,
+          "adjusted_close": 766.47998046875
+        },
+        {
+          "date": "2026-10-20",
+          "close": 769.0499877929688,
+          "adjusted_close": 769.0499877929688
+        },
+        {
+          "date": "2026-10-21",
+          "close": 773.0900268554688,
+          "adjusted_close": 773.0900268554688
+        },
+        {
+          "date": "2026-10-22",
+          "close": 763.9600219726562,
+          "adjusted_close": 763.9600219726562
+        },
+        {
+          "date": "2026-10-23",
+          "close": 759.969970703125,
+          "adjusted_close": 759.969970703125
+        },
+        {
+          "date": "2026-10-26",
+          "close": 765.3699951171875,
+          "adjusted_close": 765.3699951171875
+        },
+        {
+          "date": "2026-10-27",
+          "close": 769.6599731445312,
+          "adjusted_close": 769.6599731445312
+        },
+        {
+          "date": "2026-10-28",
+          "close": 772.3099975585938,
+          "adjusted_close": 772.3099975585938
+        },
+        {
+          "date": "2026-10-29",
+          "close": 769.3599853515625,
+          "adjusted_close": 769.3599853515625
+        },
+        {
+          "date": "2026-10-30",
+          "close": 755.719970703125,
+          "adjusted_close": 755.719970703125
+        },
+        {
+          "date": "2026-11-02",
+          "close": 752.0999755859375,
+          "adjusted_close": 752.0999755859375
+        },
+        {
+          "date": "2026-11-03",
+          "close": 754.3499755859375,
+          "adjusted_close": 754.3499755859375
+        },
+        {
+          "date": "2026-11-04",
+          "close": 766.8099975585938,
+          "adjusted_close": 766.8099975585938
+        },
+        {
+          "date": "2026-11-05",
+          "close": 733.0,
+          "adjusted_close": 733.0
+        },
+        {
+          "date": "2026-11-06",
+          "close": 735.2899780273438,
+          "adjusted_close": 735.2899780273438
+        },
+        {
+          "date": "2026-11-09",
+          "close": 752.6900024414062,
+          "adjusted_close": 752.6900024414062
+        },
+        {
+          "date": "2026-11-10",
+          "close": 749.9199829101562,
+          "adjusted_close": 749.9199829101562
+        },
+        {
+          "date": "2026-11-11",
+          "close": 759.8099975585938,
+          "adjusted_close": 759.8099975585938
+        },
+        {
+          "date": "2026-11-12",
+          "close": 757.1199951171875,
+          "adjusted_close": 757.1199951171875
+        },
+        {
+          "date": "2026-11-13",
+          "close": 754.3699951171875,
+          "adjusted_close": 754.3699951171875
+        },
+        {
+          "date": "2026-11-16",
+          "close": 739.9500122070312,
+          "adjusted_close": 739.9500122070312
+        },
+        {
+          "date": "2026-11-17",
+          "close": 732.4400024414062,
+          "adjusted_close": 732.4400024414062
+        },
+        {
+          "date": "2026-11-18",
+          "close": 730.2000122070312,
+          "adjusted_close": 730.2000122070312
+        },
+        {
+          "date": "2026-11-19",
+          "close": 715.8699951171875,
+          "adjusted_close": 715.8699951171875
+        },
+        {
+          "date": "2026-11-20",
+          "close": 689.8099975585938,
+          "adjusted_close": 689.8099975585938
+        },
+        {
+          "date": "2026-11-23",
+          "close": 722.2899780273438,
+          "adjusted_close": 722.2899780273438
+        },
+        {
+          "date": "2026-11-24",
+          "close": 718.780029296875,
+          "adjusted_close": 718.780029296875
+        },
+        {
+          "date": "2026-11-25",
+          "close": 716.7000122070312,
+          "adjusted_close": 716.7000122070312
+        },
+        {
+          "date": "2026-11-27",
+          "close": 728.3200073242188,
+          "adjusted_close": 728.3200073242188
+        }
+      ]
+    },
+    "QQQ": {
+      "reference_basis": "RUNNING_RAW_CLOSE_HIGH",
+      "reference_label": "종가 기준 최고점",
+      "current_close": 650.989990234375,
+      "current_adjusted_close": 650.989990234375,
+      "running_high_close": 759.6599731445312,
+      "running_high_date": "2026-10-06",
+      "drawdown_from_running_high": -0.1430508210934538,
+      "strategy_price_basis": "ADJUSTED_CLOSE_ATH",
+      "running_high_adjusted_close": 759.6599731445312,
+      "running_high_adjusted_date": "2026-10-06",
+      "drawdown_from_adjusted_high": -0.1430508210934538,
+      "ath_steps_adjusted": [
+        {
+          "date": "1999-03-10",
+          "adjusted_ath": 42.98226547241211
+        },
+        {
+          "date": "1999-03-11",
+          "adjusted_ath": 43.19270324707031
+        },
+        {
+          "date": "1999-03-15",
+          "adjusted_ath": 43.35054016113281
+        },
+        {
+          "date": "1999-03-16",
+          "adjusted_ath": 43.71879196166992
+        },
+        {
+          "date": "1999-03-18",
+          "adjusted_ath": 44.24489212036133
+        },
+        {
+          "date": "1999-03-29",
+          "adjusted_ath": 45.1392707824707
+        },
+        {
+          "date": "1999-04-05",
+          "adjusted_ath": 46.717552185058594
+        },
+        {
+          "date": "1999-04-06",
+          "adjusted_ath": 46.809635162353516
+        },
+        {
+          "date": "1999-04-09",
+          "adjusted_ath": 46.980621337890625
+        },
+        {
+          "date": "1999-04-26",
+          "adjusted_ath": 47.631656646728516
+        },
+        {
+          "date": "1999-06-21",
+          "adjusted_ath": 47.73687744140625
+        },
+        {
+          "date": "1999-06-29",
+          "adjusted_ath": 47.7697639465332
+        },
+        {
+          "date": "1999-06-30",
+          "adjusted_ath": 48.506309509277344
+        },
+        {
+          "date": "1999-07-01",
+          "adjusted_ath": 48.835121154785156
+        },
+        {
+          "date": "1999-07-02",
+          "adjusted_ath": 49.453277587890625
+        },
+        {
+          "date": "1999-07-08",
+          "adjusted_ath": 49.874176025390625
+        },
+        {
+          "date": "1999-07-09",
+          "adjusted_ath": 50.37395095825195
+        },
+        {
+          "date": "1999-07-14",
+          "adjusted_ath": 50.72249984741211
+        },
+        {
+          "date": "1999-07-15",
+          "adjusted_ath": 51.189414978027344
+        },
+        {
+          "date": "1999-07-16",
+          "adjusted_ath": 51.66289520263672
+        },
+        {
+          "date": "1999-08-25",
+          "adjusted_ath": 51.76811981201172
+        },
+        {
+          "date": "1999-09-03",
+          "adjusted_ath": 52.74140548706055
+        },
+        {
+          "date": "1999-09-10",
+          "adjusted_ath": 53.135963439941406
+        },
+        {
+          "date": "1999-09-17",
+          "adjusted_ath": 53.293800354003906
+        },
+        {
+          "date": "1999-09-20",
+          "adjusted_ath": 53.41873550415039
+        },
+        {
+          "date": "1999-10-08",
+          "adjusted_ath": 53.668670654296875
+        },
+        {
+          "date": "1999-10-11",
+          "adjusted_ath": 54.42490768432617
+        },
+        {
+          "date": "1999-10-29",
+          "adjusted_ath": 55.34556579589844
+        },
+        {
+          "date": "1999-11-03",
+          "adjusted_ath": 56.18732833862305
+        },
+        {
+          "date": "1999-11-04",
+          "adjusted_ath": 56.81864929199219
+        },
+        {
+          "date": "1999-11-05",
+          "adjusted_ath": 57.39737319946289
+        },
+        {
+          "date": "1999-11-08",
+          "adjusted_ath": 58.554805755615234
+        },
+        {
+          "date": "1999-11-10",
+          "adjusted_ath": 58.92304992675781
+        },
+        {
+          "date": "1999-11-11",
+          "adjusted_ath": 59.97523880004883
+        },
+        {
+          "date": "1999-11-12",
+          "adjusted_ath": 60.7643928527832
+        },
+        {
+          "date": "1999-11-16",
+          "adjusted_ath": 62.18490219116211
+        },
+        {
+          "date": "1999-11-18",
+          "adjusted_ath": 63.22393798828125
+        },
+        {
+          "date": "1999-11-19",
+          "adjusted_ath": 63.789485931396484
+        },
+        {
+          "date": "1999-11-24",
+          "adjusted_ath": 65.18360900878906
+        },
+        {
+          "date": "1999-11-26",
+          "adjusted_ath": 65.39405822753906
+        },
+        {
+          "date": "1999-12-03",
+          "adjusted_ath": 66.60409545898438
+        },
+        {
+          "date": "1999-12-06",
+          "adjusted_ath": 67.20912170410156
+        },
+        {
+          "date": "1999-12-10",
+          "adjusted_ath": 67.26173400878906
+        },
+        {
+          "date": "1999-12-13",
+          "adjusted_ath": 68.17584228515625
+        },
+        {
+          "date": "1999-12-15",
+          "adjusted_ath": 68.23499298095703
+        },
+        {
+          "date": "1999-12-16",
+          "adjusted_ath": 69.91851043701172
+        },
+        {
+          "date": "1999-12-17",
+          "adjusted_ath": 70.52354431152344
+        },
+        {
+          "date": "1999-12-20",
+          "adjusted_ath": 71.44418334960938
+        },
+        {
+          "date": "1999-12-21",
+          "adjusted_ath": 75.28472900390625
+        },
+        {
+          "date": "1999-12-23",
+          "adjusted_ath": 75.94234466552734
+        },
+        {
+          "date": "1999-12-29",
+          "adjusted_ath": 77.86261749267578
+        },
+        {
+          "date": "2000-01-03",
+          "adjusted_ath": 79.75656127929688
+        },
+        {
+          "date": "2000-01-19",
+          "adjusted_ath": 80.80877685546875
+        },
+        {
+          "date": "2000-01-21",
+          "adjusted_ath": 81.01921844482422
+        },
+        {
+          "date": "2000-02-03",
+          "adjusted_ath": 81.22966003417969
+        },
+        {
+          "date": "2000-02-04",
+          "adjusted_ath": 81.78205871582031
+        },
+        {
+          "date": "2000-02-07",
+          "adjusted_ath": 82.91316223144531
+        },
+        {
+          "date": "2000-02-08",
+          "adjusted_ath": 86.38540649414062
+        },
+        {
+          "date": "2000-02-23",
+          "adjusted_ath": 87.75328063964844
+        },
+        {
+          "date": "2000-02-24",
+          "adjusted_ath": 89.64723205566406
+        },
+        {
+          "date": "2000-02-29",
+          "adjusted_ath": 89.8576431274414
+        },
+        {
+          "date": "2000-03-01",
+          "adjusted_ath": 90.59420013427734
+        },
+        {
+          "date": "2000-03-03",
+          "adjusted_ath": 93.48773956298828
+        },
+        {
+          "date": "2000-03-06",
+          "adjusted_ath": 94.22428131103516
+        },
+        {
+          "date": "2000-03-09",
+          "adjusted_ath": 96.80217742919922
+        },
+        {
+          "date": "2000-03-23",
+          "adjusted_ath": 97.64392852783203
+        },
+        {
+          "date": "2000-03-24",
+          "adjusted_ath": 98.9591293334961
+        },
+        {
+          "date": "2000-03-27",
+          "adjusted_ath": 99.11702728271484
+        },
+        {
+          "date": "2015-02-20",
+          "adjusted_ath": 99.48225402832031
+        },
+        {
+          "date": "2015-02-23",
+          "adjusted_ath": 99.58318328857422
+        },
+        {
+          "date": "2015-02-24",
+          "adjusted_ath": 99.65660095214844
+        },
+        {
+          "date": "2015-02-26",
+          "adjusted_ath": 99.91355895996094
+        },
+        {
+          "date": "2015-03-02",
+          "adjusted_ath": 100.37237548828125
+        },
+        {
+          "date": "2015-04-24",
+          "adjusted_ath": 101.67015838623047
+        },
+        {
+          "date": "2015-05-21",
+          "adjusted_ath": 101.7069091796875
+        },
+        {
+          "date": "2015-05-27",
+          "adjusted_ath": 102.05641174316406
+        },
+        {
+          "date": "2015-06-23",
+          "adjusted_ath": 102.13443756103516
+        },
+        {
+          "date": "2015-07-16",
+          "adjusted_ath": 103.19458770751953
+        },
+        {
+          "date": "2015-07-17",
+          "adjusted_ath": 104.7156982421875
+        },
+        {
+          "date": "2015-07-20",
+          "adjusted_ath": 105.07523345947266
+        },
+        {
+          "date": "2015-10-28",
+          "adjusted_ath": 105.36784362792969
+        },
+        {
+          "date": "2015-11-02",
+          "adjusted_ath": 105.91307067871094
+        },
+        {
+          "date": "2015-11-03",
+          "adjusted_ath": 106.28271484375
+        },
+        {
+          "date": "2015-11-04",
+          "adjusted_ath": 106.29196166992188
+        },
+        {
+          "date": "2015-12-01",
+          "adjusted_ath": 106.42132568359375
+        },
+        {
+          "date": "2016-07-27",
+          "adjusted_ath": 106.80751037597656
+        },
+        {
+          "date": "2016-07-28",
+          "adjusted_ath": 107.18036651611328
+        },
+        {
+          "date": "2016-07-29",
+          "adjusted_ath": 107.41342163085938
+        },
+        {
+          "date": "2016-08-01",
+          "adjusted_ath": 107.98201751708984
+        },
+        {
+          "date": "2016-08-05",
+          "adjusted_ath": 108.85826110839844
+        },
+        {
+          "date": "2016-08-09",
+          "adjusted_ath": 108.98876953125
+        },
+        {
+          "date": "2016-08-11",
+          "adjusted_ath": 109.17517852783203
+        },
+        {
+          "date": "2016-08-12",
+          "adjusted_ath": 109.249755859375
+        },
+        {
+          "date": "2016-08-15",
+          "adjusted_ath": 109.71585083007812
+        },
+        {
+          "date": "2016-09-06",
+          "adjusted_ath": 109.85565948486328
+        },
+        {
+          "date": "2016-09-07",
+          "adjusted_ath": 109.92093658447266
+        },
+        {
+          "date": "2016-09-21",
+          "adjusted_ath": 110.41127014160156
+        },
+        {
+          "date": "2016-09-22",
+          "adjusted_ath": 111.28968048095703
+        },
+        {
+          "date": "2016-10-10",
+          "adjusted_ath": 111.41118621826172
+        },
+        {
+          "date": "2016-10-24",
+          "adjusted_ath": 111.73824310302734
+        },
+        {
+          "date": "2016-12-13",
+          "adjusted_ath": 112.56997680664062
+        },
+        {
+          "date": "2016-12-20",
+          "adjusted_ath": 112.9872055053711
+        },
+        {
+          "date": "2016-12-27",
+          "adjusted_ath": 113.24027252197266
+        },
+        {
+          "date": "2017-01-05",
+          "adjusted_ath": 113.2871322631836
+        },
+        {
+          "date": "2017-01-06",
+          "adjusted_ath": 114.2806396484375
+        },
+        {
+          "date": "2017-01-09",
+          "adjusted_ath": 114.65554809570312
+        },
+        {
+          "date": "2017-01-10",
+          "adjusted_ath": 114.90860748291016
+        },
+        {
+          "date": "2017-01-11",
+          "adjusted_ath": 115.21788024902344
+        },
+        {
+          "date": "2017-01-13",
+          "adjusted_ath": 115.43347930908203
+        },
+        {
+          "date": "2017-01-20",
+          "adjusted_ath": 115.51778411865234
+        },
+        {
+          "date": "2017-01-23",
+          "adjusted_ath": 115.61155700683594
+        },
+        {
+          "date": "2017-01-24",
+          "adjusted_ath": 116.38948059082031
+        },
+        {
+          "date": "2017-01-25",
+          "adjusted_ath": 117.56106567382812
+        },
+        {
+          "date": "2017-01-26",
+          "adjusted_ath": 117.6828842163086
+        },
+        {
+          "date": "2017-01-27",
+          "adjusted_ath": 117.90782928466797
+        },
+        {
+          "date": "2017-02-06",
+          "adjusted_ath": 117.93596649169922
+        },
+        {
+          "date": "2017-02-07",
+          "adjusted_ath": 118.36709594726562
+        },
+        {
+          "date": "2017-02-08",
+          "adjusted_ath": 118.5639419555664
+        },
+        {
+          "date": "2017-02-09",
+          "adjusted_ath": 118.99506378173828
+        },
+        {
+          "date": "2017-02-10",
+          "adjusted_ath": 119.38872528076172
+        },
+        {
+          "date": "2017-02-13",
+          "adjusted_ath": 120.06355285644531
+        },
+        {
+          "date": "2017-02-14",
+          "adjusted_ath": 120.46656799316406
+        },
+        {
+          "date": "2017-02-15",
+          "adjusted_ath": 121.17889404296875
+        },
+        {
+          "date": "2017-02-17",
+          "adjusted_ath": 121.666259765625
+        },
+        {
+          "date": "2017-02-21",
+          "adjusted_ath": 122.26608276367188
+        },
+        {
+          "date": "2017-02-22",
+          "adjusted_ath": 122.31301879882812
+        },
+        {
+          "date": "2017-03-01",
+          "adjusted_ath": 123.1939926147461
+        },
+        {
+          "date": "2017-03-13",
+          "adjusted_ath": 123.35335540771484
+        },
+        {
+          "date": "2017-03-15",
+          "adjusted_ath": 123.8126220703125
+        },
+        {
+          "date": "2017-03-29",
+          "adjusted_ath": 124.21100616455078
+        },
+        {
+          "date": "2017-03-30",
+          "adjusted_ath": 124.41769409179688
+        },
+        {
+          "date": "2017-04-04",
+          "adjusted_ath": 124.45521545410156
+        },
+        {
+          "date": "2017-04-20",
+          "adjusted_ath": 124.53038024902344
+        },
+        {
+          "date": "2017-04-24",
+          "adjusted_ath": 126.00491333007812
+        },
+        {
+          "date": "2017-04-25",
+          "adjusted_ath": 126.9159164428711
+        },
+        {
+          "date": "2017-04-27",
+          "adjusted_ath": 127.49827575683594
+        },
+        {
+          "date": "2017-04-28",
+          "adjusted_ath": 127.72367095947266
+        },
+        {
+          "date": "2017-05-01",
+          "adjusted_ath": 128.86012268066406
+        },
+        {
+          "date": "2017-05-02",
+          "adjusted_ath": 129.07615661621094
+        },
+        {
+          "date": "2017-05-05",
+          "adjusted_ath": 129.17945861816406
+        },
+        {
+          "date": "2017-05-08",
+          "adjusted_ath": 129.46121215820312
+        },
+        {
+          "date": "2017-05-09",
+          "adjusted_ath": 129.91201782226562
+        },
+        {
+          "date": "2017-05-10",
+          "adjusted_ath": 129.98716735839844
+        },
+        {
+          "date": "2017-05-12",
+          "adjusted_ath": 130.17501831054688
+        },
+        {
+          "date": "2017-05-15",
+          "adjusted_ath": 130.5882568359375
+        },
+        {
+          "date": "2017-05-16",
+          "adjusted_ath": 131.1330108642578
+        },
+        {
+          "date": "2017-05-24",
+          "adjusted_ath": 131.28326416015625
+        },
+        {
+          "date": "2017-05-25",
+          "adjusted_ath": 132.4009552001953
+        },
+        {
+          "date": "2017-05-26",
+          "adjusted_ath": 132.63575744628906
+        },
+        {
+          "date": "2017-05-30",
+          "adjusted_ath": 132.74844360351562
+        },
+        {
+          "date": "2017-06-01",
+          "adjusted_ath": 133.21803283691406
+        },
+        {
+          "date": "2017-06-02",
+          "adjusted_ath": 134.73960876464844
+        },
+        {
+          "date": "2017-06-08",
+          "adjusted_ath": 134.84291076660156
+        },
+        {
+          "date": "2017-07-19",
+          "adjusted_ath": 135.59640502929688
+        },
+        {
+          "date": "2017-07-20",
+          "adjusted_ath": 135.77536010742188
+        },
+        {
+          "date": "2017-07-24",
+          "adjusted_ath": 136.3404083251953
+        },
+        {
+          "date": "2017-07-26",
+          "adjusted_ath": 136.43458557128906
+        },
+        {
+          "date": "2017-08-31",
+          "adjusted_ath": 137.6870880126953
+        },
+        {
+          "date": "2017-09-12",
+          "adjusted_ath": 137.70599365234375
+        },
+        {
+          "date": "2017-09-13",
+          "adjusted_ath": 137.89431762695312
+        },
+        {
+          "date": "2017-10-05",
+          "adjusted_ath": 139.17770385742188
+        },
+        {
+          "date": "2017-10-06",
+          "adjusted_ath": 139.3665008544922
+        },
+        {
+          "date": "2017-10-11",
+          "adjusted_ath": 139.72509765625
+        },
+        {
+          "date": "2017-10-13",
+          "adjusted_ath": 140.00830078125
+        },
+        {
+          "date": "2017-10-16",
+          "adjusted_ath": 140.48973083496094
+        },
+        {
+          "date": "2017-10-17",
+          "adjusted_ath": 140.66896057128906
+        },
+        {
+          "date": "2017-10-27",
+          "adjusted_ath": 142.74539184570312
+        },
+        {
+          "date": "2017-10-30",
+          "adjusted_ath": 143.0663604736328
+        },
+        {
+          "date": "2017-10-31",
+          "adjusted_ath": 143.6042938232422
+        },
+        {
+          "date": "2017-11-03",
+          "adjusted_ath": 144.66140747070312
+        },
+        {
+          "date": "2017-11-06",
+          "adjusted_ath": 145.15219116210938
+        },
+        {
+          "date": "2017-11-07",
+          "adjusted_ath": 145.2371368408203
+        },
+        {
+          "date": "2017-11-08",
+          "adjusted_ath": 145.8223114013672
+        },
+        {
+          "date": "2017-11-16",
+          "adjusted_ath": 145.86007690429688
+        },
+        {
+          "date": "2017-11-21",
+          "adjusted_ath": 146.7661590576172
+        },
+        {
+          "date": "2017-11-22",
+          "adjusted_ath": 146.9454345703125
+        },
+        {
+          "date": "2017-11-24",
+          "adjusted_ath": 147.4834442138672
+        },
+        {
+          "date": "2017-11-28",
+          "adjusted_ath": 147.79489135742188
+        },
+        {
+          "date": "2017-12-15",
+          "adjusted_ath": 148.7953643798828
+        },
+        {
+          "date": "2017-12-18",
+          "adjusted_ath": 150.0428924560547
+        },
+        {
+          "date": "2018-01-03",
+          "adjusted_ath": 151.35760498046875
+        },
+        {
+          "date": "2018-01-04",
+          "adjusted_ath": 151.62240600585938
+        },
+        {
+          "date": "2018-01-05",
+          "adjusted_ath": 153.1451416015625
+        },
+        {
+          "date": "2018-01-08",
+          "adjusted_ath": 153.74099731445312
+        },
+        {
+          "date": "2018-01-09",
+          "adjusted_ath": 153.75048828125
+        },
+        {
+          "date": "2018-01-11",
+          "adjusted_ath": 154.44093322753906
+        },
+        {
+          "date": "2018-01-12",
+          "adjusted_ath": 155.57589721679688
+        },
+        {
+          "date": "2018-01-17",
+          "adjusted_ath": 156.80543518066406
+        },
+        {
+          "date": "2018-01-18",
+          "adjusted_ath": 156.83380126953125
+        },
+        {
+          "date": "2018-01-19",
+          "adjusted_ath": 157.32566833496094
+        },
+        {
+          "date": "2018-01-22",
+          "adjusted_ath": 159.00912475585938
+        },
+        {
+          "date": "2018-01-23",
+          "adjusted_ath": 160.32383728027344
+        },
+        {
+          "date": "2018-01-26",
+          "adjusted_ath": 161.6668701171875
+        },
+        {
+          "date": "2018-03-09",
+          "adjusted_ath": 163.77601623535156
+        },
+        {
+          "date": "2018-03-12",
+          "adjusted_ath": 164.6461639404297
+        },
+        {
+          "date": "2018-06-04",
+          "adjusted_ath": 165.1217041015625
+        },
+        {
+          "date": "2018-06-05",
+          "adjusted_ath": 165.63327026367188
+        },
+        {
+          "date": "2018-06-06",
+          "adjusted_ath": 166.59959411621094
+        },
+        {
+          "date": "2018-06-14",
+          "adjusted_ath": 168.2479248046875
+        },
+        {
+          "date": "2018-06-20",
+          "adjusted_ath": 168.27574157714844
+        },
+        {
+          "date": "2018-07-10",
+          "adjusted_ath": 168.34222412109375
+        },
+        {
+          "date": "2018-07-12",
+          "adjusted_ath": 170.3738250732422
+        },
+        {
+          "date": "2018-07-13",
+          "adjusted_ath": 170.51629638671875
+        },
+        {
+          "date": "2018-07-17",
+          "adjusted_ath": 171.1428985595703
+        },
+        {
+          "date": "2018-07-24",
+          "adjusted_ath": 171.1713409423828
+        },
+        {
+          "date": "2018-07-25",
+          "adjusted_ath": 173.56378173828125
+        },
+        {
+          "date": "2018-08-27",
+          "adjusted_ath": 175.0067901611328
+        },
+        {
+          "date": "2018-08-28",
+          "adjusted_ath": 175.26312255859375
+        },
+        {
+          "date": "2018-08-29",
+          "adjusted_ath": 177.28526306152344
+        },
+        {
+          "date": "2019-04-12",
+          "adjusted_ath": 177.56707763671875
+        },
+        {
+          "date": "2019-04-15",
+          "adjusted_ath": 177.5957489013672
+        },
+        {
+          "date": "2019-04-16",
+          "adjusted_ath": 178.20730590820312
+        },
+        {
+          "date": "2019-04-17",
+          "adjusted_ath": 178.828369140625
+        },
+        {
+          "date": "2019-04-18",
+          "adjusted_ath": 179.05772399902344
+        },
+        {
+          "date": "2019-04-22",
+          "adjusted_ath": 179.56414794921875
+        },
+        {
+          "date": "2019-04-23",
+          "adjusted_ath": 181.8478546142578
+        },
+        {
+          "date": "2019-04-25",
+          "adjusted_ath": 182.01026916503906
+        },
+        {
+          "date": "2019-04-26",
+          "adjusted_ath": 182.17276000976562
+        },
+        {
+          "date": "2019-04-29",
+          "adjusted_ath": 182.52630615234375
+        },
+        {
+          "date": "2019-05-03",
+          "adjusted_ath": 182.6123046875
+        },
+        {
+          "date": "2019-07-03",
+          "adjusted_ath": 183.3320770263672
+        },
+        {
+          "date": "2019-07-10",
+          "adjusted_ath": 184.40464782714844
+        },
+        {
+          "date": "2019-07-12",
+          "adjusted_ath": 185.33355712890625
+        },
+        {
+          "date": "2019-07-15",
+          "adjusted_ath": 185.92727661132812
+        },
+        {
+          "date": "2019-07-24",
+          "adjusted_ath": 186.88491821289062
+        },
+        {
+          "date": "2019-07-26",
+          "adjusted_ath": 187.0189666748047
+        },
+        {
+          "date": "2019-10-25",
+          "adjusted_ath": 187.73202514648438
+        },
+        {
+          "date": "2019-10-28",
+          "adjusted_ath": 189.58399963378906
+        },
+        {
+          "date": "2019-11-01",
+          "adjusted_ath": 190.83145141601562
+        },
+        {
+          "date": "2019-11-04",
+          "adjusted_ath": 192.01173400878906
+        },
+        {
+          "date": "2019-11-05",
+          "adjusted_ath": 192.11724853515625
+        },
+        {
+          "date": "2019-11-07",
+          "adjusted_ath": 192.3283233642578
+        },
+        {
+          "date": "2019-11-08",
+          "adjusted_ath": 193.0960235595703
+        },
+        {
+          "date": "2019-11-12",
+          "adjusted_ath": 193.39352416992188
+        },
+        {
+          "date": "2019-11-13",
+          "adjusted_ath": 193.44146728515625
+        },
+        {
+          "date": "2019-11-15",
+          "adjusted_ath": 194.7081756591797
+        },
+        {
+          "date": "2019-11-18",
+          "adjusted_ath": 194.86167907714844
+        },
+        {
+          "date": "2019-11-19",
+          "adjusted_ath": 195.14955139160156
+        },
+        {
+          "date": "2019-11-25",
+          "adjusted_ath": 195.9651641845703
+        },
+        {
+          "date": "2019-11-26",
+          "adjusted_ath": 196.3394317626953
+        },
+        {
+          "date": "2019-11-27",
+          "adjusted_ath": 197.71157836914062
+        },
+        {
+          "date": "2019-12-12",
+          "adjusted_ath": 198.16258239746094
+        },
+        {
+          "date": "2019-12-13",
+          "adjusted_ath": 198.8151397705078
+        },
+        {
+          "date": "2019-12-16",
+          "adjusted_ath": 200.8111114501953
+        },
+        {
+          "date": "2019-12-17",
+          "adjusted_ath": 200.9262237548828
+        },
+        {
+          "date": "2019-12-18",
+          "adjusted_ath": 201.07974243164062
+        },
+        {
+          "date": "2019-12-19",
+          "adjusted_ath": 202.33677673339844
+        },
+        {
+          "date": "2019-12-20",
+          "adjusted_ath": 203.15248107910156
+        },
+        {
+          "date": "2019-12-23",
+          "adjusted_ath": 203.68905639648438
+        },
+        {
+          "date": "2019-12-24",
+          "adjusted_ath": 203.79481506347656
+        },
+        {
+          "date": "2019-12-26",
+          "adjusted_ath": 205.5931396484375
+        },
+        {
+          "date": "2020-01-02",
+          "adjusted_ath": 207.8722686767578
+        },
+        {
+          "date": "2020-01-08",
+          "adjusted_ath": 208.82432556152344
+        },
+        {
+          "date": "2020-01-09",
+          "adjusted_ath": 210.59373474121094
+        },
+        {
+          "date": "2020-01-13",
+          "adjusted_ath": 212.4785919189453
+        },
+        {
+          "date": "2020-01-16",
+          "adjusted_ath": 213.75758361816406
+        },
+        {
+          "date": "2020-01-17",
+          "adjusted_ath": 214.81544494628906
+        },
+        {
+          "date": "2020-01-22",
+          "adjusted_ath": 215.28668212890625
+        },
+        {
+          "date": "2020-01-23",
+          "adjusted_ath": 215.9790802001953
+        },
+        {
+          "date": "2020-02-04",
+          "adjusted_ath": 218.74864196777344
+        },
+        {
+          "date": "2020-02-05",
+          "adjusted_ath": 219.46986389160156
+        },
+        {
+          "date": "2020-02-06",
+          "adjusted_ath": 221.36436462402344
+        },
+        {
+          "date": "2020-02-10",
+          "adjusted_ath": 223.07611083984375
+        },
+        {
+          "date": "2020-02-11",
+          "adjusted_ath": 223.1145477294922
+        },
+        {
+          "date": "2020-02-12",
+          "adjusted_ath": 225.28793334960938
+        },
+        {
+          "date": "2020-02-14",
+          "adjusted_ath": 225.64370727539062
+        },
+        {
+          "date": "2020-02-18",
+          "adjusted_ath": 225.73025512695312
+        },
+        {
+          "date": "2020-02-19",
+          "adjusted_ath": 227.8939971923828
+        },
+        {
+          "date": "2020-06-03",
+          "adjusted_ath": 228.10018920898438
+        },
+        {
+          "date": "2020-06-05",
+          "adjusted_ath": 230.9912872314453
+        },
+        {
+          "date": "2020-06-08",
+          "adjusted_ath": 232.78379821777344
+        },
+        {
+          "date": "2020-06-09",
+          "adjusted_ath": 234.4702911376953
+        },
+        {
+          "date": "2020-06-10",
+          "adjusted_ath": 237.2843017578125
+        },
+        {
+          "date": "2020-06-22",
+          "adjusted_ath": 238.19898986816406
+        },
+        {
+          "date": "2020-06-23",
+          "adjusted_ath": 240.22628784179688
+        },
+        {
+          "date": "2020-07-01",
+          "adjusted_ath": 241.81918334960938
+        },
+        {
+          "date": "2020-07-02",
+          "adjusted_ath": 243.4603271484375
+        },
+        {
+          "date": "2020-07-06",
+          "adjusted_ath": 249.4457550048828
+        },
+        {
+          "date": "2020-07-08",
+          "adjusted_ath": 250.9903106689453
+        },
+        {
+          "date": "2020-07-09",
+          "adjusted_ath": 253.10450744628906
+        },
+        {
+          "date": "2020-07-10",
+          "adjusted_ath": 254.83255004882812
+        },
+        {
+          "date": "2020-07-20",
+          "adjusted_ath": 257.5451965332031
+        },
+        {
+          "date": "2020-08-03",
+          "adjusted_ath": 260.0552978515625
+        },
+        {
+          "date": "2020-08-04",
+          "adjusted_ath": 261.0206604003906
+        },
+        {
+          "date": "2020-08-05",
+          "adjusted_ath": 261.66748046875
+        },
+        {
+          "date": "2020-08-06",
+          "adjusted_ath": 265.1331481933594
+        },
+        {
+          "date": "2020-08-17",
+          "adjusted_ath": 265.78961181640625
+        },
+        {
+          "date": "2020-08-18",
+          "adjusted_ath": 268.347900390625
+        },
+        {
+          "date": "2020-08-20",
+          "adjusted_ath": 270.24005126953125
+        },
+        {
+          "date": "2020-08-21",
+          "adjusted_ath": 272.1129455566406
+        },
+        {
+          "date": "2020-08-24",
+          "adjusted_ath": 273.81201171875
+        },
+        {
+          "date": "2020-08-25",
+          "adjusted_ath": 275.9647216796875
+        },
+        {
+          "date": "2020-08-26",
+          "adjusted_ath": 281.8536376953125
+        },
+        {
+          "date": "2020-08-28",
+          "adjusted_ath": 282.4039306640625
+        },
+        {
+          "date": "2020-08-31",
+          "adjusted_ath": 284.672607421875
+        },
+        {
+          "date": "2020-09-01",
+          "adjusted_ath": 289.5380859375
+        },
+        {
+          "date": "2020-09-02",
+          "adjusted_ath": 292.2798156738281
+        },
+        {
+          "date": "2020-12-01",
+          "adjusted_ath": 292.95556640625
+        },
+        {
+          "date": "2020-12-02",
+          "adjusted_ath": 293.33209228515625
+        },
+        {
+          "date": "2020-12-03",
+          "adjusted_ath": 293.74725341796875
+        },
+        {
+          "date": "2020-12-04",
+          "adjusted_ath": 294.9442443847656
+        },
+        {
+          "date": "2020-12-07",
+          "adjusted_ath": 296.6144104003906
+        },
+        {
+          "date": "2020-12-08",
+          "adjusted_ath": 297.6183776855469
+        },
+        {
+          "date": "2020-12-16",
+          "adjusted_ath": 298.28448486328125
+        },
+        {
+          "date": "2020-12-17",
+          "adjusted_ath": 300.2345275878906
+        },
+        {
+          "date": "2020-12-28",
+          "adjusted_ath": 302.4035339355469
+        },
+        {
+          "date": "2020-12-29",
+          "adjusted_ath": 302.6743469238281
+        },
+        {
+          "date": "2020-12-30",
+          "adjusted_ath": 302.6840515136719
+        },
+        {
+          "date": "2020-12-31",
+          "adjusted_ath": 303.4287109375
+        },
+        {
+          "date": "2021-01-07",
+          "adjusted_ath": 304.6280212402344
+        },
+        {
+          "date": "2021-01-08",
+          "adjusted_ath": 308.5448303222656
+        },
+        {
+          "date": "2021-01-20",
+          "adjusted_ath": 313.1290588378906
+        },
+        {
+          "date": "2021-01-21",
+          "adjusted_ath": 315.6339111328125
+        },
+        {
+          "date": "2021-01-25",
+          "adjusted_ath": 317.3264465332031
+        },
+        {
+          "date": "2021-01-26",
+          "adjusted_ath": 317.7906494140625
+        },
+        {
+          "date": "2021-02-04",
+          "adjusted_ath": 319.38641357421875
+        },
+        {
+          "date": "2021-02-05",
+          "adjusted_ath": 320.4696350097656
+        },
+        {
+          "date": "2021-02-08",
+          "adjusted_ath": 322.6166687011719
+        },
+        {
+          "date": "2021-02-11",
+          "adjusted_ath": 323.58380126953125
+        },
+        {
+          "date": "2021-02-12",
+          "adjusted_ath": 325.3923645019531
+        },
+        {
+          "date": "2021-04-09",
+          "adjusted_ath": 326.44244384765625
+        },
+        {
+          "date": "2021-04-13",
+          "adjusted_ath": 329.822021484375
+        },
+        {
+          "date": "2021-04-15",
+          "adjusted_ath": 330.800048828125
+        },
+        {
+          "date": "2021-04-16",
+          "adjusted_ath": 331.18731689453125
+        },
+        {
+          "date": "2021-06-14",
+          "adjusted_ath": 333.6081848144531
+        },
+        {
+          "date": "2021-06-17",
+          "adjusted_ath": 334.4120178222656
+        },
+        {
+          "date": "2021-06-22",
+          "adjusted_ath": 336.9618835449219
+        },
+        {
+          "date": "2021-06-23",
+          "adjusted_ath": 337.1266784667969
+        },
+        {
+          "date": "2021-06-24",
+          "adjusted_ath": 339.2110595703125
+        },
+        {
+          "date": "2021-06-28",
+          "adjusted_ath": 342.91448974609375
+        },
+        {
+          "date": "2021-06-29",
+          "adjusted_ath": 344.1553955078125
+        },
+        {
+          "date": "2021-07-02",
+          "adjusted_ath": 347.69403076171875
+        },
+        {
+          "date": "2021-07-06",
+          "adjusted_ath": 349.1966247558594
+        },
+        {
+          "date": "2021-07-07",
+          "adjusted_ath": 349.93359375
+        },
+        {
+          "date": "2021-07-09",
+          "adjusted_ath": 349.9915771484375
+        },
+        {
+          "date": "2021-07-12",
+          "adjusted_ath": 351.3586730957031
+        },
+        {
+          "date": "2021-07-14",
+          "adjusted_ath": 351.98876953125
+        },
+        {
+          "date": "2021-07-22",
+          "adjusted_ath": 352.8419189453125
+        },
+        {
+          "date": "2021-07-23",
+          "adjusted_ath": 356.96221923828125
+        },
+        {
+          "date": "2021-07-26",
+          "adjusted_ath": 357.24334716796875
+        },
+        {
+          "date": "2021-08-05",
+          "adjusted_ath": 358.3872985839844
+        },
+        {
+          "date": "2021-08-23",
+          "adjusted_ath": 361.83868408203125
+        },
+        {
+          "date": "2021-08-24",
+          "adjusted_ath": 362.94390869140625
+        },
+        {
+          "date": "2021-08-25",
+          "adjusted_ath": 363.3607177734375
+        },
+        {
+          "date": "2021-08-27",
+          "adjusted_ath": 364.5628356933594
+        },
+        {
+          "date": "2021-08-30",
+          "adjusted_ath": 368.6541442871094
+        },
+        {
+          "date": "2021-09-01",
+          "adjusted_ath": 368.9643859863281
+        },
+        {
+          "date": "2021-09-03",
+          "adjusted_ath": 369.92413330078125
+        },
+        {
+          "date": "2021-09-07",
+          "adjusted_ath": 370.4476623535156
+        },
+        {
+          "date": "2021-10-28",
+          "adjusted_ath": 372.9063415527344
+        },
+        {
+          "date": "2021-10-29",
+          "adjusted_ath": 374.7406005859375
+        },
+        {
+          "date": "2021-11-01",
+          "adjusted_ath": 376.02166748046875
+        },
+        {
+          "date": "2021-11-02",
+          "adjusted_ath": 377.593994140625
+        },
+        {
+          "date": "2021-11-03",
+          "adjusted_ath": 381.60235595703125
+        },
+        {
+          "date": "2021-11-04",
+          "adjusted_ath": 386.4939880371094
+        },
+        {
+          "date": "2021-11-05",
+          "adjusted_ath": 386.8628234863281
+        },
+        {
+          "date": "2021-11-18",
+          "adjusted_ath": 389.9200744628906
+        },
+        {
+          "date": "2021-11-19",
+          "adjusted_ath": 392.0941467285156
+        },
+        {
+          "date": "2021-12-27",
+          "adjusted_ath": 392.0992126464844
+        },
+        {
+          "date": "2023-12-13",
+          "adjusted_ath": 396.9720764160156
+        },
+        {
+          "date": "2023-12-15",
+          "adjusted_ath": 398.5453186035156
+        },
+        {
+          "date": "2023-12-18",
+          "adjusted_ath": 401.0555725097656
+        },
+        {
+          "date": "2023-12-19",
+          "adjusted_ath": 403.1048583984375
+        },
+        {
+          "date": "2023-12-26",
+          "adjusted_ath": 404.7993469238281
+        },
+        {
+          "date": "2023-12-27",
+          "adjusted_ath": 405.6233825683594
+        },
+        {
+          "date": "2024-01-18",
+          "adjusted_ath": 407.0921936035156
+        },
+        {
+          "date": "2024-01-19",
+          "adjusted_ath": 415.1651916503906
+        },
+        {
+          "date": "2024-01-22",
+          "adjusted_ath": 415.7073059082031
+        },
+        {
+          "date": "2024-01-23",
+          "adjusted_ath": 417.432373046875
+        },
+        {
+          "date": "2024-01-24",
+          "adjusted_ath": 419.7487487792969
+        },
+        {
+          "date": "2024-01-25",
+          "adjusted_ath": 420.2613525390625
+        },
+        {
+          "date": "2024-01-29",
+          "adjusted_ath": 422.0356140136719
+        },
+        {
+          "date": "2024-02-02",
+          "adjusted_ath": 422.8834533691406
+        },
+        {
+          "date": "2024-02-07",
+          "adjusted_ath": 425.82086181640625
+        },
+        {
+          "date": "2024-02-08",
+          "adjusted_ath": 426.609375
+        },
+        {
+          "date": "2024-02-09",
+          "adjusted_ath": 430.80853271484375
+        },
+        {
+          "date": "2024-02-22",
+          "adjusted_ath": 431.8139953613281
+        },
+        {
+          "date": "2024-02-29",
+          "adjusted_ath": 432.73077392578125
+        },
+        {
+          "date": "2024-03-01",
+          "adjusted_ath": 439.24627685546875
+        },
+        {
+          "date": "2024-03-21",
+          "adjusted_ath": 440.083740234375
+        },
+        {
+          "date": "2024-03-22",
+          "adjusted_ath": 440.587158203125
+        },
+        {
+          "date": "2024-05-15",
+          "adjusted_ath": 447.0225830078125
+        },
+        {
+          "date": "2024-05-20",
+          "adjusted_ath": 449.0064392089844
+        },
+        {
+          "date": "2024-05-21",
+          "adjusted_ath": 449.8849182128906
+        },
+        {
+          "date": "2024-05-24",
+          "adjusted_ath": 452.0069885253906
+        },
+        {
+          "date": "2024-05-28",
+          "adjusted_ath": 453.71453857421875
+        },
+        {
+          "date": "2024-06-05",
+          "adjusted_ath": 457.51458740234375
+        },
+        {
+          "date": "2024-06-10",
+          "adjusted_ath": 458.79766845703125
+        },
+        {
+          "date": "2024-06-11",
+          "adjusted_ath": 461.9463195800781
+        },
+        {
+          "date": "2024-06-12",
+          "adjusted_ath": 467.99676513671875
+        },
+        {
+          "date": "2024-06-13",
+          "adjusted_ath": 470.5334167480469
+        },
+        {
+          "date": "2024-06-14",
+          "adjusted_ath": 472.9713439941406
+        },
+        {
+          "date": "2024-06-17",
+          "adjusted_ath": 478.76513671875
+        },
+        {
+          "date": "2024-06-18",
+          "adjusted_ath": 478.9132080078125
+        },
+        {
+          "date": "2024-07-02",
+          "adjusted_ath": 481.4242248535156
+        },
+        {
+          "date": "2024-07-03",
+          "adjusted_ath": 485.43792724609375
+        },
+        {
+          "date": "2024-07-05",
+          "adjusted_ath": 490.49951171875
+        },
+        {
+          "date": "2024-07-08",
+          "adjusted_ath": 491.6660461425781
+        },
+        {
+          "date": "2024-07-09",
+          "adjusted_ath": 492.0911560058594
+        },
+        {
+          "date": "2024-07-10",
+          "adjusted_ath": 497.2218933105469
+        },
+        {
+          "date": "2024-11-06",
+          "adjusted_ath": 500.5143737792969
+        },
+        {
+          "date": "2024-11-07",
+          "adjusted_ath": 508.3945617675781
+        },
+        {
+          "date": "2024-11-08",
+          "adjusted_ath": 508.9886169433594
+        },
+        {
+          "date": "2024-12-02",
+          "adjusted_ath": 510.1271057128906
+        },
+        {
+          "date": "2024-12-03",
+          "adjusted_ath": 511.69122314453125
+        },
+        {
+          "date": "2024-12-04",
+          "adjusted_ath": 518.0172119140625
+        },
+        {
+          "date": "2024-12-06",
+          "adjusted_ath": 521.2048950195312
+        },
+        {
+          "date": "2024-12-11",
+          "adjusted_ath": 524.6105346679688
+        },
+        {
+          "date": "2024-12-13",
+          "adjusted_ath": 525.2144165039062
+        },
+        {
+          "date": "2024-12-16",
+          "adjusted_ath": 532.7777709960938
+        },
+        {
+          "date": "2025-02-14",
+          "adjusted_ath": 533.6171875
+        },
+        {
+          "date": "2025-02-18",
+          "adjusted_ath": 534.8268432617188
+        },
+        {
+          "date": "2025-02-19",
+          "adjusted_ath": 534.9757080078125
+        },
+        {
+          "date": "2025-06-24",
+          "adjusted_ath": 536.6336059570312
+        },
+        {
+          "date": "2025-06-25",
+          "adjusted_ath": 538.0054321289062
+        },
+        {
+          "date": "2025-06-26",
+          "adjusted_ath": 543.0360717773438
+        },
+        {
+          "date": "2025-06-27",
+          "adjusted_ath": 544.8950805664062
+        },
+        {
+          "date": "2025-06-30",
+          "adjusted_ath": 548.4244384765625
+        },
+        {
+          "date": "2025-07-03",
+          "adjusted_ath": 552.977783203125
+        },
+        {
+          "date": "2025-07-09",
+          "adjusted_ath": 553.007568359375
+        },
+        {
+          "date": "2025-07-15",
+          "adjusted_ath": 553.4747314453125
+        },
+        {
+          "date": "2025-07-16",
+          "adjusted_ath": 554.0415649414062
+        },
+        {
+          "date": "2025-07-17",
+          "adjusted_ath": 558.5252075195312
+        },
+        {
+          "date": "2025-07-21",
+          "adjusted_ath": 560.8814697265625
+        },
+        {
+          "date": "2025-07-24",
+          "adjusted_ath": 561.7164916992188
+        },
+        {
+          "date": "2025-07-25",
+          "adjusted_ath": 563.0685424804688
+        },
+        {
+          "date": "2025-07-28",
+          "adjusted_ath": 564.8283081054688
+        },
+        {
+          "date": "2025-08-07",
+          "adjusted_ath": 565.921875
+        },
+        {
+          "date": "2025-08-08",
+          "adjusted_ath": 571.2008666992188
+        },
+        {
+          "date": "2025-08-12",
+          "adjusted_ath": 576.6688842773438
+        },
+        {
+          "date": "2025-08-13",
+          "adjusted_ath": 576.9571533203125
+        },
+        {
+          "date": "2025-09-09",
+          "adjusted_ath": 577.1260986328125
+        },
+        {
+          "date": "2025-09-10",
+          "adjusted_ath": 577.3151245117188
+        },
+        {
+          "date": "2025-09-11",
+          "adjusted_ath": 580.6753540039062
+        },
+        {
+          "date": "2025-09-12",
+          "adjusted_ath": 583.2402954101562
+        },
+        {
+          "date": "2025-09-15",
+          "adjusted_ath": 588.2310791015625
+        },
+        {
+          "date": "2025-09-18",
+          "adjusted_ath": 591.8499145507812
+        },
+        {
+          "date": "2025-09-19",
+          "adjusted_ath": 595.8563232421875
+        },
+        {
+          "date": "2025-09-22",
+          "adjusted_ath": 599.3837890625
+        },
+        {
+          "date": "2025-10-01",
+          "adjusted_ath": 600.4288330078125
+        },
+        {
+          "date": "2025-10-02",
+          "adjusted_ath": 602.897216796875
+        },
+        {
+          "date": "2025-10-06",
+          "adjusted_ath": 604.8680419921875
+        },
+        {
+          "date": "2025-10-08",
+          "adjusted_ath": 608.5805053710938
+        },
+        {
+          "date": "2025-10-20",
+          "adjusted_ath": 608.6801147460938
+        },
+        {
+          "date": "2025-10-24",
+          "adjusted_ath": 614.2140502929688
+        },
+        {
+          "date": "2025-10-27",
+          "adjusted_ath": 625.15283203125
+        },
+        {
+          "date": "2025-10-28",
+          "adjusted_ath": 629.9600830078125
+        },
+        {
+          "date": "2025-10-29",
+          "adjusted_ath": 632.7968139648438
+        },
+        {
+          "date": "2026-04-15",
+          "adjusted_ath": 636.0375366210938
+        },
+        {
+          "date": "2026-04-16",
+          "adjusted_ath": 639.1009521484375
+        },
+        {
+          "date": "2026-04-17",
+          "adjusted_ath": 647.4630126953125
+        },
+        {
+          "date": "2026-04-22",
+          "adjusted_ath": 653.7096557617188
+        },
+        {
+          "date": "2026-04-24",
+          "adjusted_ath": 662.4609375
+        },
+        {
+          "date": "2026-04-27",
+          "adjusted_ath": 662.8101806640625
+        },
+        {
+          "date": "2026-04-30",
+          "adjusted_ath": 666.3126831054688
+        },
+        {
+          "date": "2026-05-01",
+          "adjusted_ath": 672.7090454101562
+        },
+        {
+          "date": "2026-05-05",
+          "adjusted_ath": 680.1530151367188
+        },
+        {
+          "date": "2026-05-06",
+          "adjusted_ath": 694.2827758789062
+        },
+        {
+          "date": "2026-05-08",
+          "adjusted_ath": 709.709716796875
+        },
+        {
+          "date": "2026-05-11",
+          "adjusted_ath": 711.7653198242188
+        },
+        {
+          "date": "2026-05-13",
+          "adjusted_ath": 713.1823120117188
+        },
+        {
+          "date": "2026-05-14",
+          "adjusted_ath": 718.2514038085938
+        },
+        {
+          "date": "2026-05-26",
+          "adjusted_ath": 728.718994140625
+        },
+        {
+          "date": "2026-05-28",
+          "adjusted_ath": 734.0276489257812
+        },
+        {
+          "date": "2026-05-29",
+          "adjusted_ath": 736.7318115234375
+        },
+        {
+          "date": "2026-06-01",
+          "adjusted_ath": 741.15234375
+        },
+        {
+          "date": "2026-06-02",
+          "adjusted_ath": 744.5650024414062
+        },
+        {
+          "date": "2026-09-22",
+          "adjusted_ath": 747.4600219726562
+        },
+        {
+          "date": "2026-10-02",
+          "adjusted_ath": 749.5800170898438
+        },
+        {
+          "date": "2026-10-05",
+          "adjusted_ath": 756.2000122070312
+        },
+        {
+          "date": "2026-10-06",
+          "adjusted_ath": 759.6599731445312
+        }
+      ],
+      "history_sessions": 252,
+      "history": [
+        {
+          "date": "2025-11-26",
+          "close": 614.27001953125,
+          "adjusted_close": 611.3973999023438
+        },
+        {
+          "date": "2025-11-28",
+          "close": 619.25,
+          "adjusted_close": 616.35400390625
+        },
+        {
+          "date": "2025-12-01",
+          "close": 617.1699829101562,
+          "adjusted_close": 614.2837524414062
+        },
+        {
+          "date": "2025-12-02",
+          "close": 622.0,
+          "adjusted_close": 619.0911254882812
+        },
+        {
+          "date": "2025-12-03",
+          "close": 623.52001953125,
+          "adjusted_close": 620.6041259765625
+        },
+        {
+          "date": "2025-12-04",
+          "close": 622.9400024414062,
+          "adjusted_close": 620.0267944335938
+        },
+        {
+          "date": "2025-12-05",
+          "close": 625.47998046875,
+          "adjusted_close": 622.5548706054688
+        },
+        {
+          "date": "2025-12-08",
+          "close": 624.280029296875,
+          "adjusted_close": 621.360595703125
+        },
+        {
+          "date": "2025-12-09",
+          "close": 625.0499877929688,
+          "adjusted_close": 622.1268310546875
+        },
+        {
+          "date": "2025-12-10",
+          "close": 627.6099853515625,
+          "adjusted_close": 624.6749877929688
+        },
+        {
+          "date": "2025-12-11",
+          "close": 625.5800170898438,
+          "adjusted_close": 622.6544799804688
+        },
+        {
+          "date": "2025-12-12",
+          "close": 613.6199951171875,
+          "adjusted_close": 610.7503662109375
+        },
+        {
+          "date": "2025-12-15",
+          "close": 610.5399780273438,
+          "adjusted_close": 607.6847534179688
+        },
+        {
+          "date": "2025-12-16",
+          "close": 611.75,
+          "adjusted_close": 608.88916015625
+        },
+        {
+          "date": "2025-12-17",
+          "close": 600.4099731445312,
+          "adjusted_close": 597.6021118164062
+        },
+        {
+          "date": "2025-12-18",
+          "close": 609.1099853515625,
+          "adjusted_close": 606.2614135742188
+        },
+        {
+          "date": "2025-12-19",
+          "close": 617.0499877929688,
+          "adjusted_close": 614.1643676757812
+        },
+        {
+          "date": "2025-12-22",
+          "close": 619.2100219726562,
+          "adjusted_close": 617.1083374023438
+        },
+        {
+          "date": "2025-12-23",
+          "close": 622.1099853515625,
+          "adjusted_close": 619.9984130859375
+        },
+        {
+          "date": "2025-12-24",
+          "close": 623.9299926757812,
+          "adjusted_close": 621.812255859375
+        },
+        {
+          "date": "2025-12-26",
+          "close": 623.8900146484375,
+          "adjusted_close": 621.7723999023438
+        },
+        {
+          "date": "2025-12-29",
+          "close": 620.8699951171875,
+          "adjusted_close": 618.7626953125
+        },
+        {
+          "date": "2025-12-30",
+          "close": 619.4299926757812,
+          "adjusted_close": 617.3275146484375
+        },
+        {
+          "date": "2025-12-31",
+          "close": 614.3099975585938,
+          "adjusted_close": 612.2249145507812
+        },
+        {
+          "date": "2026-01-02",
+          "close": 613.1199951171875,
+          "adjusted_close": 611.0390014648438
+        },
+        {
+          "date": "2026-01-05",
+          "close": 617.989990234375,
+          "adjusted_close": 615.8924560546875
+        },
+        {
+          "date": "2026-01-06",
+          "close": 623.4199829101562,
+          "adjusted_close": 621.303955078125
+        },
+        {
+          "date": "2026-01-07",
+          "close": 624.02001953125,
+          "adjusted_close": 621.9020385742188
+        },
+        {
+          "date": "2026-01-08",
+          "close": 620.469970703125,
+          "adjusted_close": 618.3639526367188
+        },
+        {
+          "date": "2026-01-09",
+          "close": 626.6500244140625,
+          "adjusted_close": 624.5230102539062
+        },
+        {
+          "date": "2026-01-12",
+          "close": 627.1699829101562,
+          "adjusted_close": 625.041259765625
+        },
+        {
+          "date": "2026-01-13",
+          "close": 626.239990234375,
+          "adjusted_close": 624.1144409179688
+        },
+        {
+          "date": "2026-01-14",
+          "close": 619.5499877929688,
+          "adjusted_close": 617.4471435546875
+        },
+        {
+          "date": "2026-01-15",
+          "close": 621.780029296875,
+          "adjusted_close": 619.6696166992188
+        },
+        {
+          "date": "2026-01-16",
+          "close": 621.260009765625,
+          "adjusted_close": 619.1513671875
+        },
+        {
+          "date": "2026-01-20",
+          "close": 608.0599975585938,
+          "adjusted_close": 605.9961547851562
+        },
+        {
+          "date": "2026-01-21",
+          "close": 616.280029296875,
+          "adjusted_close": 614.188232421875
+        },
+        {
+          "date": "2026-01-22",
+          "close": 620.760009765625,
+          "adjusted_close": 618.6530151367188
+        },
+        {
+          "date": "2026-01-23",
+          "close": 622.719970703125,
+          "adjusted_close": 620.6063842773438
+        },
+        {
+          "date": "2026-01-26",
+          "close": 625.4600219726562,
+          "adjusted_close": 623.3370971679688
+        },
+        {
+          "date": "2026-01-27",
+          "close": 631.1300048828125,
+          "adjusted_close": 628.9878540039062
+        },
+        {
+          "date": "2026-01-28",
+          "close": 633.219970703125,
+          "adjusted_close": 631.0706787109375
+        },
+        {
+          "date": "2026-01-29",
+          "close": 629.4299926757812,
+          "adjusted_close": 627.2936401367188
+        },
+        {
+          "date": "2026-01-30",
+          "close": 621.8699951171875,
+          "adjusted_close": 619.75927734375
+        },
+        {
+          "date": "2026-02-02",
+          "close": 626.1400146484375,
+          "adjusted_close": 624.0148315429688
+        },
+        {
+          "date": "2026-02-03",
+          "close": 616.52001953125,
+          "adjusted_close": 614.4274291992188
+        },
+        {
+          "date": "2026-02-04",
+          "close": 605.75,
+          "adjusted_close": 603.6939697265625
+        },
+        {
+          "date": "2026-02-05",
+          "close": 597.030029296875,
+          "adjusted_close": 595.003662109375
+        },
+        {
+          "date": "2026-02-06",
+          "close": 609.6500244140625,
+          "adjusted_close": 607.5807495117188
+        },
+        {
+          "date": "2026-02-09",
+          "close": 614.3200073242188,
+          "adjusted_close": 612.2349243164062
+        },
+        {
+          "date": "2026-02-10",
+          "close": 611.469970703125,
+          "adjusted_close": 609.3945922851562
+        },
+        {
+          "date": "2026-02-11",
+          "close": 613.1099853515625,
+          "adjusted_close": 611.0289916992188
+        },
+        {
+          "date": "2026-02-12",
+          "close": 600.6400146484375,
+          "adjusted_close": 598.601318359375
+        },
+        {
+          "date": "2026-02-13",
+          "close": 601.9199829101562,
+          "adjusted_close": 599.876953125
+        },
+        {
+          "date": "2026-02-17",
+          "close": 601.2999877929688,
+          "adjusted_close": 599.259033203125
+        },
+        {
+          "date": "2026-02-18",
+          "close": 605.7899780273438,
+          "adjusted_close": 603.7338256835938
+        },
+        {
+          "date": "2026-02-19",
+          "close": 603.469970703125,
+          "adjusted_close": 601.4216918945312
+        },
+        {
+          "date": "2026-02-20",
+          "close": 608.8099975585938,
+          "adjusted_close": 606.74365234375
+        },
+        {
+          "date": "2026-02-23",
+          "close": 601.4099731445312,
+          "adjusted_close": 599.36865234375
+        },
+        {
+          "date": "2026-02-24",
+          "close": 607.8699951171875,
+          "adjusted_close": 605.8067626953125
+        },
+        {
+          "date": "2026-02-25",
+          "close": 616.6799926757812,
+          "adjusted_close": 614.5868530273438
+        },
+        {
+          "date": "2026-02-26",
+          "close": 609.239990234375,
+          "adjusted_close": 607.1721801757812
+        },
+        {
+          "date": "2026-02-27",
+          "close": 607.2899780273438,
+          "adjusted_close": 605.228759765625
+        },
+        {
+          "date": "2026-03-02",
+          "close": 608.0900268554688,
+          "adjusted_close": 606.0260009765625
+        },
+        {
+          "date": "2026-03-03",
+          "close": 601.5800170898438,
+          "adjusted_close": 599.5381469726562
+        },
+        {
+          "date": "2026-03-04",
+          "close": 610.75,
+          "adjusted_close": 608.6770629882812
+        },
+        {
+          "date": "2026-03-05",
+          "close": 608.9099731445312,
+          "adjusted_close": 606.8432006835938
+        },
+        {
+          "date": "2026-03-06",
+          "close": 599.75,
+          "adjusted_close": 597.7142944335938
+        },
+        {
+          "date": "2026-03-09",
+          "close": 607.760009765625,
+          "adjusted_close": 605.6971435546875
+        },
+        {
+          "date": "2026-03-10",
+          "close": 607.77001953125,
+          "adjusted_close": 605.7071533203125
+        },
+        {
+          "date": "2026-03-11",
+          "close": 607.6900024414062,
+          "adjusted_close": 605.62744140625
+        },
+        {
+          "date": "2026-03-12",
+          "close": 597.260009765625,
+          "adjusted_close": 595.2328491210938
+        },
+        {
+          "date": "2026-03-13",
+          "close": 593.719970703125,
+          "adjusted_close": 591.7047729492188
+        },
+        {
+          "date": "2026-03-16",
+          "close": 600.3800048828125,
+          "adjusted_close": 598.3422241210938
+        },
+        {
+          "date": "2026-03-17",
+          "close": 603.3099975585938,
+          "adjusted_close": 601.2622680664062
+        },
+        {
+          "date": "2026-03-18",
+          "close": 594.9000244140625,
+          "adjusted_close": 592.880859375
+        },
+        {
+          "date": "2026-03-19",
+          "close": 593.02001953125,
+          "adjusted_close": 591.0072021484375
+        },
+        {
+          "date": "2026-03-20",
+          "close": 582.0599975585938,
+          "adjusted_close": 580.0844116210938
+        },
+        {
+          "date": "2026-03-23",
+          "close": 588.0,
+          "adjusted_close": 586.7431640625
+        },
+        {
+          "date": "2026-03-24",
+          "close": 583.97998046875,
+          "adjusted_close": 582.731689453125
+        },
+        {
+          "date": "2026-03-25",
+          "close": 587.8200073242188,
+          "adjusted_close": 586.5635375976562
+        },
+        {
+          "date": "2026-03-26",
+          "close": 573.7899780273438,
+          "adjusted_close": 572.5634765625
+        },
+        {
+          "date": "2026-03-27",
+          "close": 562.5800170898438,
+          "adjusted_close": 561.37744140625
+        },
+        {
+          "date": "2026-03-30",
+          "close": 558.280029296875,
+          "adjusted_close": 557.0867309570312
+        },
+        {
+          "date": "2026-03-31",
+          "close": 577.1799926757812,
+          "adjusted_close": 575.9462280273438
+        },
+        {
+          "date": "2026-04-01",
+          "close": 584.3099975585938,
+          "adjusted_close": 583.06103515625
+        },
+        {
+          "date": "2026-04-02",
+          "close": 584.97998046875,
+          "adjusted_close": 583.7295532226562
+        },
+        {
+          "date": "2026-04-06",
+          "close": 588.5,
+          "adjusted_close": 587.2420654296875
+        },
+        {
+          "date": "2026-04-07",
+          "close": 588.5900268554688,
+          "adjusted_close": 587.3319091796875
+        },
+        {
+          "date": "2026-04-08",
+          "close": 606.0900268554688,
+          "adjusted_close": 604.7944946289062
+        },
+        {
+          "date": "2026-04-09",
+          "close": 610.1900024414062,
+          "adjusted_close": 608.8856811523438
+        },
+        {
+          "date": "2026-04-10",
+          "close": 611.0700073242188,
+          "adjusted_close": 609.7637939453125
+        },
+        {
+          "date": "2026-04-13",
+          "close": 617.3900146484375,
+          "adjusted_close": 616.0703735351562
+        },
+        {
+          "date": "2026-04-14",
+          "close": 628.5999755859375,
+          "adjusted_close": 627.2562866210938
+        },
+        {
+          "date": "2026-04-15",
+          "close": 637.4000244140625,
+          "adjusted_close": 636.0375366210938
+        },
+        {
+          "date": "2026-04-16",
+          "close": 640.469970703125,
+          "adjusted_close": 639.1009521484375
+        },
+        {
+          "date": "2026-04-17",
+          "close": 648.8499755859375,
+          "adjusted_close": 647.4630126953125
+        },
+        {
+          "date": "2026-04-20",
+          "close": 646.7899780273438,
+          "adjusted_close": 645.4074096679688
+        },
+        {
+          "date": "2026-04-21",
+          "close": 644.3300170898438,
+          "adjusted_close": 642.9527587890625
+        },
+        {
+          "date": "2026-04-22",
+          "close": 655.1099853515625,
+          "adjusted_close": 653.7096557617188
+        },
+        {
+          "date": "2026-04-23",
+          "close": 651.4199829101562,
+          "adjusted_close": 650.0275268554688
+        },
+        {
+          "date": "2026-04-24",
+          "close": 663.8800048828125,
+          "adjusted_close": 662.4609375
+        },
+        {
+          "date": "2026-04-27",
+          "close": 664.22998046875,
+          "adjusted_close": 662.8101806640625
+        },
+        {
+          "date": "2026-04-28",
+          "close": 657.5499877929688,
+          "adjusted_close": 656.1444702148438
+        },
+        {
+          "date": "2026-04-29",
+          "close": 661.5700073242188,
+          "adjusted_close": 660.1558837890625
+        },
+        {
+          "date": "2026-04-30",
+          "close": 667.739990234375,
+          "adjusted_close": 666.3126831054688
+        },
+        {
+          "date": "2026-05-01",
+          "close": 674.1500244140625,
+          "adjusted_close": 672.7090454101562
+        },
+        {
+          "date": "2026-05-04",
+          "close": 672.8800048828125,
+          "adjusted_close": 671.4417114257812
+        },
+        {
+          "date": "2026-05-05",
+          "close": 681.6099853515625,
+          "adjusted_close": 680.1530151367188
+        },
+        {
+          "date": "2026-05-06",
+          "close": 695.77001953125,
+          "adjusted_close": 694.2827758789062
+        },
+        {
+          "date": "2026-05-07",
+          "close": 694.9400024414062,
+          "adjusted_close": 693.4545288085938
+        },
+        {
+          "date": "2026-05-08",
+          "close": 711.22998046875,
+          "adjusted_close": 709.709716796875
+        },
+        {
+          "date": "2026-05-11",
+          "close": 713.2899780273438,
+          "adjusted_close": 711.7653198242188
+        },
+        {
+          "date": "2026-05-12",
+          "close": 707.239990234375,
+          "adjusted_close": 705.7282104492188
+        },
+        {
+          "date": "2026-05-13",
+          "close": 714.7100219726562,
+          "adjusted_close": 713.1823120117188
+        },
+        {
+          "date": "2026-05-14",
+          "close": 719.7899780273438,
+          "adjusted_close": 718.2514038085938
+        },
+        {
+          "date": "2026-05-15",
+          "close": 708.9299926757812,
+          "adjusted_close": 707.4146118164062
+        },
+        {
+          "date": "2026-05-18",
+          "close": 705.8800048828125,
+          "adjusted_close": 704.3711547851562
+        },
+        {
+          "date": "2026-05-19",
+          "close": 701.530029296875,
+          "adjusted_close": 700.030517578125
+        },
+        {
+          "date": "2026-05-20",
+          "close": 713.1500244140625,
+          "adjusted_close": 711.6256103515625
+        },
+        {
+          "date": "2026-05-21",
+          "close": 714.510009765625,
+          "adjusted_close": 712.9827270507812
+        },
+        {
+          "date": "2026-05-22",
+          "close": 717.5399780273438,
+          "adjusted_close": 716.0062255859375
+        },
+        {
+          "date": "2026-05-26",
+          "close": 730.280029296875,
+          "adjusted_close": 728.718994140625
+        },
+        {
+          "date": "2026-05-27",
+          "close": 729.4500122070312,
+          "adjusted_close": 727.8907470703125
+        },
+        {
+          "date": "2026-05-28",
+          "close": 735.5999755859375,
+          "adjusted_close": 734.0276489257812
+        },
+        {
+          "date": "2026-05-29",
+          "close": 738.3099975585938,
+          "adjusted_close": 736.7318115234375
+        },
+        {
+          "date": "2026-06-01",
+          "close": 742.739990234375,
+          "adjusted_close": 741.15234375
+        },
+        {
+          "date": "2026-06-02",
+          "close": 746.1599731445312,
+          "adjusted_close": 744.5650024414062
+        },
+        {
+          "date": "2026-06-03",
+          "close": 744.2100219726562,
+          "adjusted_close": 742.6192626953125
+        },
+        {
+          "date": "2026-06-04",
+          "close": 740.6099853515625,
+          "adjusted_close": 739.0269165039062
+        },
+        {
+          "date": "2026-06-05",
+          "close": 705.0599975585938,
+          "adjusted_close": 703.5528564453125
+        },
+        {
+          "date": "2026-06-08",
+          "close": 716.0700073242188,
+          "adjusted_close": 714.5394287109375
+        },
+        {
+          "date": "2026-06-09",
+          "close": 707.8300170898438,
+          "adjusted_close": 706.3170166015625
+        },
+        {
+          "date": "2026-06-10",
+          "close": 693.6900024414062,
+          "adjusted_close": 692.2072143554688
+        },
+        {
+          "date": "2026-06-11",
+          "close": 717.1199951171875,
+          "adjusted_close": 715.587158203125
+        },
+        {
+          "date": "2026-06-12",
+          "close": 721.3400268554688,
+          "adjusted_close": 719.7981567382812
+        },
+        {
+          "date": "2026-06-15",
+          "close": 744.0,
+          "adjusted_close": 742.40966796875
+        },
+        {
+          "date": "2026-06-16",
+          "close": 729.8599853515625,
+          "adjusted_close": 728.2998657226562
+        },
+        {
+          "date": "2026-06-17",
+          "close": 722.510009765625,
+          "adjusted_close": 720.9656372070312
+        },
+        {
+          "date": "2026-06-18",
+          "close": 740.6199951171875,
+          "adjusted_close": 739.0369262695312
+        },
+        {
+          "date": "2026-06-22",
+          "close": 737.9500122070312,
+          "adjusted_close": 737.1818237304688
+        },
+        {
+          "date": "2026-06-23",
+          "close": 713.6500244140625,
+          "adjusted_close": 712.9071655273438
+        },
+        {
+          "date": "2026-06-24",
+          "close": 710.6199951171875,
+          "adjusted_close": 709.8803100585938
+        },
+        {
+          "date": "2026-06-25",
+          "close": 716.3800048828125,
+          "adjusted_close": 715.63427734375
+        },
+        {
+          "date": "2026-06-26",
+          "close": 706.52001953125,
+          "adjusted_close": 705.7846069335938
+        },
+        {
+          "date": "2026-06-29",
+          "close": 724.0800170898438,
+          "adjusted_close": 723.3262939453125
+        },
+        {
+          "date": "2026-06-30",
+          "close": 736.4000244140625,
+          "adjusted_close": 735.6334838867188
+        },
+        {
+          "date": "2026-07-01",
+          "close": 725.1699829101562,
+          "adjusted_close": 724.4151000976562
+        },
+        {
+          "date": "2026-07-02",
+          "close": 712.5999755859375,
+          "adjusted_close": 711.8582153320312
+        },
+        {
+          "date": "2026-07-06",
+          "close": 722.8200073242188,
+          "adjusted_close": 722.067626953125
+        },
+        {
+          "date": "2026-07-07",
+          "close": 709.4299926757812,
+          "adjusted_close": 708.6915283203125
+        },
+        {
+          "date": "2026-07-08",
+          "close": 711.4400024414062,
+          "adjusted_close": 710.699462890625
+        },
+        {
+          "date": "2026-07-09",
+          "close": 723.280029296875,
+          "adjusted_close": 722.5271606445312
+        },
+        {
+          "date": "2026-07-10",
+          "close": 725.510009765625,
+          "adjusted_close": 724.7548217773438
+        },
+        {
+          "date": "2026-07-13",
+          "close": 711.739990234375,
+          "adjusted_close": 710.9990844726562
+        },
+        {
+          "date": "2026-07-14",
+          "close": 719.6900024414062,
+          "adjusted_close": 718.9408569335938
+        },
+        {
+          "date": "2026-07-15",
+          "close": 717.739990234375,
+          "adjusted_close": 716.9928588867188
+        },
+        {
+          "date": "2026-07-16",
+          "close": 705.9400024414062,
+          "adjusted_close": 705.2051391601562
+        },
+        {
+          "date": "2026-07-17",
+          "close": 695.3300170898438,
+          "adjusted_close": 694.606201171875
+        },
+        {
+          "date": "2026-07-20",
+          "close": 696.0599975585938,
+          "adjusted_close": 695.33544921875
+        },
+        {
+          "date": "2026-07-21",
+          "close": 708.969970703125,
+          "adjusted_close": 708.2319946289062
+        },
+        {
+          "date": "2026-07-22",
+          "close": 705.3499755859375,
+          "adjusted_close": 704.61572265625
+        },
+        {
+          "date": "2026-07-23",
+          "close": 691.9600219726562,
+          "adjusted_close": 691.23974609375
+        },
+        {
+          "date": "2026-07-24",
+          "close": 684.22998046875,
+          "adjusted_close": 683.5177612304688
+        },
+        {
+          "date": "2026-07-27",
+          "close": 682.1199951171875,
+          "adjusted_close": 681.4099731445312
+        },
+        {
+          "date": "2026-07-28",
+          "close": 675.489990234375,
+          "adjusted_close": 674.786865234375
+        },
+        {
+          "date": "2026-07-29",
+          "close": 661.72998046875,
+          "adjusted_close": 661.0411376953125
+        },
+        {
+          "date": "2026-07-30",
+          "close": 683.5499877929688,
+          "adjusted_close": 682.8384399414062
+        },
+        {
+          "date": "2026-07-31",
+          "close": 687.989990234375,
+          "adjusted_close": 687.2738647460938
+        },
+        {
+          "date": "2026-08-03",
+          "close": 700.0700073242188,
+          "adjusted_close": 699.34130859375
+        },
+        {
+          "date": "2026-08-04",
+          "close": 723.8499755859375,
+          "adjusted_close": 723.0964965820312
+        },
+        {
+          "date": "2026-08-05",
+          "close": 717.2999877929688,
+          "adjusted_close": 716.5533447265625
+        },
+        {
+          "date": "2026-08-06",
+          "close": 714.6500244140625,
+          "adjusted_close": 713.9061279296875
+        },
+        {
+          "date": "2026-08-07",
+          "close": 723.030029296875,
+          "adjusted_close": 722.2774047851562
+        },
+        {
+          "date": "2026-08-10",
+          "close": 720.8699951171875,
+          "adjusted_close": 720.11962890625
+        },
+        {
+          "date": "2026-08-11",
+          "close": 718.4500122070312,
+          "adjusted_close": 717.7021484375
+        },
+        {
+          "date": "2026-08-12",
+          "close": 723.7000122070312,
+          "adjusted_close": 722.9467163085938
+        },
+        {
+          "date": "2026-08-13",
+          "close": 732.0700073242188,
+          "adjusted_close": 731.3079833984375
+        },
+        {
+          "date": "2026-08-14",
+          "close": 731.0700073242188,
+          "adjusted_close": 730.3090209960938
+        },
+        {
+          "date": "2026-08-17",
+          "close": 729.8699951171875,
+          "adjusted_close": 729.1102294921875
+        },
+        {
+          "date": "2026-08-18",
+          "close": 717.510009765625,
+          "adjusted_close": 716.7631225585938
+        },
+        {
+          "date": "2026-08-19",
+          "close": 716.0800170898438,
+          "adjusted_close": 715.3345947265625
+        },
+        {
+          "date": "2026-08-20",
+          "close": 710.9299926757812,
+          "adjusted_close": 710.18994140625
+        },
+        {
+          "date": "2026-08-21",
+          "close": 713.4400024414062,
+          "adjusted_close": 712.6973876953125
+        },
+        {
+          "date": "2026-08-24",
+          "close": 706.3200073242188,
+          "adjusted_close": 705.5847778320312
+        },
+        {
+          "date": "2026-08-25",
+          "close": 710.719970703125,
+          "adjusted_close": 709.9801635742188
+        },
+        {
+          "date": "2026-08-26",
+          "close": 711.3699951171875,
+          "adjusted_close": 710.6295166015625
+        },
+        {
+          "date": "2026-08-27",
+          "close": 721.1099853515625,
+          "adjusted_close": 720.359375
+        },
+        {
+          "date": "2026-08-28",
+          "close": 716.4299926757812,
+          "adjusted_close": 715.6842651367188
+        },
+        {
+          "date": "2026-08-31",
+          "close": 716.760009765625,
+          "adjusted_close": 716.013916015625
+        },
+        {
+          "date": "2026-09-01",
+          "close": 707.6400146484375,
+          "adjusted_close": 706.9033813476562
+        },
+        {
+          "date": "2026-09-02",
+          "close": 709.239990234375,
+          "adjusted_close": 708.501708984375
+        },
+        {
+          "date": "2026-09-03",
+          "close": 717.6699829101562,
+          "adjusted_close": 716.9229125976562
+        },
+        {
+          "date": "2026-09-04",
+          "close": 718.9600219726562,
+          "adjusted_close": 718.2116088867188
+        },
+        {
+          "date": "2026-09-08",
+          "close": 718.3599853515625,
+          "adjusted_close": 717.6122436523438
+        },
+        {
+          "date": "2026-09-09",
+          "close": 716.3099975585938,
+          "adjusted_close": 715.5643920898438
+        },
+        {
+          "date": "2026-09-10",
+          "close": 708.6900024414062,
+          "adjusted_close": 707.9523315429688
+        },
+        {
+          "date": "2026-09-11",
+          "close": 714.8800048828125,
+          "adjusted_close": 714.1358642578125
+        },
+        {
+          "date": "2026-09-14",
+          "close": 709.1799926757812,
+          "adjusted_close": 708.4417724609375
+        },
+        {
+          "date": "2026-09-15",
+          "close": 704.5399780273438,
+          "adjusted_close": 703.8065795898438
+        },
+        {
+          "date": "2026-09-16",
+          "close": 704.719970703125,
+          "adjusted_close": 703.9863891601562
+        },
+        {
+          "date": "2026-09-17",
+          "close": 716.9199829101562,
+          "adjusted_close": 716.1737060546875
+        },
+        {
+          "date": "2026-09-18",
+          "close": 721.4500122070312,
+          "adjusted_close": 720.6990356445312
+        },
+        {
+          "date": "2026-09-21",
+          "close": 741.469970703125,
+          "adjusted_close": 741.469970703125
+        },
+        {
+          "date": "2026-09-22",
+          "close": 747.4600219726562,
+          "adjusted_close": 747.4600219726562
+        },
+        {
+          "date": "2026-09-23",
+          "close": 741.2100219726562,
+          "adjusted_close": 741.2100219726562
+        },
+        {
+          "date": "2026-09-24",
+          "close": 741.0999755859375,
+          "adjusted_close": 741.0999755859375
+        },
+        {
+          "date": "2026-09-25",
+          "close": 744.5,
+          "adjusted_close": 744.5
+        },
+        {
+          "date": "2026-09-28",
+          "close": 736.530029296875,
+          "adjusted_close": 736.530029296875
+        },
+        {
+          "date": "2026-09-29",
+          "close": 737.9299926757812,
+          "adjusted_close": 737.9299926757812
+        },
+        {
+          "date": "2026-09-30",
+          "close": 739.77001953125,
+          "adjusted_close": 739.77001953125
+        },
+        {
+          "date": "2026-10-01",
+          "close": 742.030029296875,
+          "adjusted_close": 742.030029296875
+        },
+        {
+          "date": "2026-10-02",
+          "close": 749.5800170898438,
+          "adjusted_close": 749.5800170898438
+        },
+        {
+          "date": "2026-10-05",
+          "close": 756.2000122070312,
+          "adjusted_close": 756.2000122070312
+        },
+        {
+          "date": "2026-10-06",
+          "close": 759.6599731445312,
+          "adjusted_close": 759.6599731445312
+        },
+        {
+          "date": "2026-10-07",
+          "close": 757.72998046875,
+          "adjusted_close": 757.72998046875
+        },
+        {
+          "date": "2026-10-08",
+          "close": 747.5800170898438,
+          "adjusted_close": 747.5800170898438
+        },
+        {
+          "date": "2026-10-09",
+          "close": 751.27001953125,
+          "adjusted_close": 751.27001953125
+        },
+        {
+          "date": "2026-10-12",
+          "close": 746.0399780273438,
+          "adjusted_close": 746.0399780273438
+        },
+        {
+          "date": "2026-10-13",
+          "close": 743.5700073242188,
+          "adjusted_close": 743.5700073242188
+        },
+        {
+          "date": "2026-10-14",
+          "close": 728.9500122070312,
+          "adjusted_close": 728.9500122070312
+        },
+        {
+          "date": "2026-10-15",
+          "close": 728.0,
+          "adjusted_close": 728.0
+        },
+        {
+          "date": "2026-10-16",
+          "close": 709.7999877929688,
+          "adjusted_close": 709.7999877929688
+        },
+        {
+          "date": "2026-10-19",
+          "close": 718.3599853515625,
+          "adjusted_close": 718.3599853515625
+        },
+        {
+          "date": "2026-10-20",
+          "close": 717.6300048828125,
+          "adjusted_close": 717.6300048828125
+        },
+        {
+          "date": "2026-10-21",
+          "close": 725.2000122070312,
+          "adjusted_close": 725.2000122070312
+        },
+        {
+          "date": "2026-10-22",
+          "close": 704.469970703125,
+          "adjusted_close": 704.469970703125
+        },
+        {
+          "date": "2026-10-23",
+          "close": 704.4000244140625,
+          "adjusted_close": 704.4000244140625
+        },
+        {
+          "date": "2026-10-26",
+          "close": 712.2000122070312,
+          "adjusted_close": 712.2000122070312
+        },
+        {
+          "date": "2026-10-27",
+          "close": 721.25,
+          "adjusted_close": 721.25
+        },
+        {
+          "date": "2026-10-28",
+          "close": 725.6099853515625,
+          "adjusted_close": 725.6099853515625
+        },
+        {
+          "date": "2026-10-29",
+          "close": 715.3400268554688,
+          "adjusted_close": 715.3400268554688
+        },
+        {
+          "date": "2026-10-30",
+          "close": 690.489990234375,
+          "adjusted_close": 690.489990234375
+        },
+        {
+          "date": "2026-11-02",
+          "close": 681.0900268554688,
+          "adjusted_close": 681.0900268554688
+        },
+        {
+          "date": "2026-11-03",
+          "close": 685.280029296875,
+          "adjusted_close": 685.280029296875
+        },
+        {
+          "date": "2026-11-04",
+          "close": 691.9500122070312,
+          "adjusted_close": 691.9500122070312
+        },
+        {
+          "date": "2026-11-05",
+          "close": 647.0499877929688,
+          "adjusted_close": 647.0499877929688
+        },
+        {
+          "date": "2026-11-06",
+          "close": 656.0999755859375,
+          "adjusted_close": 656.0999755859375
+        },
+        {
+          "date": "2026-11-09",
+          "close": 679.3499755859375,
+          "adjusted_close": 679.3499755859375
+        },
+        {
+          "date": "2026-11-10",
+          "close": 674.760009765625,
+          "adjusted_close": 674.760009765625
+        },
+        {
+          "date": "2026-11-11",
+          "close": 690.3800048828125,
+          "adjusted_close": 690.3800048828125
+        },
+        {
+          "date": "2026-11-12",
+          "close": 688.1699829101562,
+          "adjusted_close": 688.1699829101562
+        },
+        {
+          "date": "2026-11-13",
+          "close": 679.8900146484375,
+          "adjusted_close": 679.8900146484375
+        },
+        {
+          "date": "2026-11-16",
+          "close": 661.75,
+          "adjusted_close": 661.75
+        },
+        {
+          "date": "2026-11-17",
+          "close": 656.9500122070312,
+          "adjusted_close": 656.9500122070312
+        },
+        {
+          "date": "2026-11-18",
+          "close": 659.510009765625,
+          "adjusted_close": 659.510009765625
+        },
+        {
+          "date": "2026-11-19",
+          "close": 645.0399780273438,
+          "adjusted_close": 645.0399780273438
+        },
+        {
+          "date": "2026-11-20",
+          "close": 608.4500122070312,
+          "adjusted_close": 608.4500122070312
+        },
+        {
+          "date": "2026-11-23",
+          "close": 651.030029296875,
+          "adjusted_close": 651.030029296875
+        },
+        {
+          "date": "2026-11-24",
+          "close": 638.0999755859375,
+          "adjusted_close": 638.0999755859375
+        },
+        {
+          "date": "2026-11-25",
+          "close": 633.9299926757812,
+          "adjusted_close": 633.9299926757812
+        },
+        {
+          "date": "2026-11-27",
+          "close": 650.989990234375,
+          "adjusted_close": 650.989990234375
+        }
+      ]
+    }
+  },
+  "generated_at_utc": "2026-11-28T04:53:36.145681+00:00",
+  "data_sources": {
+    "SPY": {
+      "source": "Yahoo Finance chart API / query1.finance.yahoo.com",
+      "first": "1999-03-10",
+      "last": "2026-11-27",
+      "rows": 6974,
+      "tls_verification": true
+    },
+    "QQQ": {
+      "source": "Yahoo Finance chart API / query1.finance.yahoo.com",
+      "first": "1999-03-10",
+      "last": "2026-11-27",
+      "rows": 6974,
+      "tls_verification": true
+    },
+    "DGS1": {
+      "source": "US Treasury 1-year par yield curve",
+      "first": "1999-03-10",
+      "last": "2026-11-27",
+      "last_valid": "2026-11-27",
+      "rows": 6936,
+      "fallback_used": false,
+      "fallback_level": 0,
+      "rate_series": "US Treasury 1-year CMT"
+    }
+  },
+  "production_validation": {
+    "status": "PASSED",
+    "config_sha256": "23716df62977b2d4a89830ed6958b3637bc6dc6d77f318bd3ec8a398eb9c1131",
+    "checkpoint_end": "2026-10-29",
+    "errors": []
+  }
+}
